@@ -2,8 +2,9 @@ body {
     font-family: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
     font-size: 0.875rem;
     line-height: 1.7142857rem;
-    background-color: #1b1b1b;
-    color: #eaeaea;
+    background-color: #eaeaea;
+    color:
+    #1b1b1b;
     padding: 0;
     margin: 0;
 }
@@ -13,7 +14,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #1b1b1b;
+    background-color: #eaeaea;
     border-bottom: 1px solid #333;
 }
 
@@ -55,7 +56,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #00cc66;
+    color: #1b1b1b;;
 }
 
 main {
@@ -87,7 +88,7 @@ main {
 }
 
 .posts ul li a {
-    color: #66ff99;
+    color: #1b1b1b;;
     text-decoration: none;
 }
 
