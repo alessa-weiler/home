@@ -1,12 +1,12 @@
 body {
-    font-family: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace';
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     font-size: 0.875rem;
     line-height: 1.7142857rem;
     background-color: #eaeaea;
-    color:
-    #1b1b1b;
+    color: #1b1b1b;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 0;
-    margin: 0;
 }
 
 header {
@@ -16,31 +16,35 @@ header {
     padding: 20px;
     background-color: #eaeaea;
     border-bottom: 1px solid #333;
+    margin-bottom: 40px;
 }
 
 .logo {
     display: flex;
     align-items: center;
 }
+
 .logo a {
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .dog-logo {
     width: 40px;
     height: 40px;
     transition: transform 0.3s ease;
+    margin-right: 10px;
 }
 
 .logo a:hover .dog-logo {
-    content: url('new-hover-logo.png'); /* Replace with the path to your hover logo */
-    transform: scale(1.1); /* Slightly enlarge the logo on hover */
+    transform: scale(1.1);
 }
 
 .logo h1 {
     font-size: 1.5rem;
-    color: ##ffffff;
-    margin-left: 10px;
+    color: #1b1b1b;
+    margin: 0;
 }
 
 nav ul {
@@ -50,26 +54,58 @@ nav ul {
 }
 
 nav ul li a {
-    color: #ffffff;
+    color: #1b1b1b;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.2s ease;
 }
 
 nav ul li a:hover {
-    color: #1b1b1b;;
+    color: #777;
 }
 
 main {
-    padding: 20px;
+    padding: 0 20px 40px;
+}
+
+.intro {
+    margin-bottom: 60px;
 }
 
 .intro h2, .about h2 {
-    color: #eaeaea;
+    color: #1b1b1b;
     font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: normal;
 }
 
 .intro p, .about p {
     color: #888;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #1b1b1b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: #777;
+    text-decoration: underline;
+}
+
+.posts h3 {
+    color: #1b1b1b;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: normal;
 }
 
 .posts ul {
@@ -81,31 +117,108 @@ main {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+    transition: all 0.2s ease;
+}
+
+.posts ul li:hover {
+    transform: translateX(4px);
 }
 
 .posts ul li span {
     color: #777;
+    min-width: 50px;
 }
 
 .posts ul li a {
-    color: #1b1b1b;;
+    color: #1b1b1b;
     text-decoration: none;
+    flex: 1;
+    margin-left: 20px;
+    transition: color 0.2s ease;
 }
 
 .posts ul li a:hover {
     text-decoration: underline;
+    color: #000;
 }
 
-.social-icons a {
-    color: white; /* Change the link color to white */
-    text-decoration: none; /* Optional: remove underline from links */
-    padding: 0 10px; /* Optional: add some padding for spacing */
+/* About page specific styles */
+.about-section {
+    margin-bottom: 40px;
 }
 
-.social-icons a:hover {
-    color: #ccc; /* Change the color on hover (e.g., light gray) */
+.year-project {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
 }
 
-.posts ul li a:hover {
+.year-project:last-child {
+    border-bottom: none;
+}
+
+.year-project h3 {
+    color: #1b1b1b;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.year-project p {
+    color: #888;
+    line-height: 1.7;
+}
+
+.year-project a {
+    color: #1b1b1b;
     text-decoration: underline;
+}
+
+.year-project a:hover {
+    color: #000;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    body {
+        margin: 0;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .logo h1 {
+        font-size: 1.3rem;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    main {
+        padding: 0 15px 30px;
+    }
+
+    .intro h2, .about h2 {
+        font-size: 2rem;
+    }
+
+    .social-icons {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .posts ul li {
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 20px;
+    }
+
+    .posts ul li a {
+        margin-left: 0;
+    }
 }
