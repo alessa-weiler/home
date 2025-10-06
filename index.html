@@ -8,97 +8,44 @@
 </head>
 
 <body>
-    <header>
-         <div class="logo">
-        <a href="index.html">
-            <img src="logo.png" alt="Logo" class="dog-logo">
-        </a>
-        <h1>Home</h1>
-    </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <section class="intro">
+    <!-- UI Overlay -->
+    <div class="game-ui">
+        <div class="header-overlay">
+            <div class="logo">
+                <img src="logo.png" alt="Logo" class="dog-logo">
+                <h1>Alessa's Journey</h1>
+            </div>
+            <nav>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+
+        <div class="intro-overlay">
             <h2>Hello World!</h2>
-            <p>Hi, I'm Alessa. Welcome to my online home! I've created this as a place to save projects that I've enjoyed in the past.
-            </p>
+            <p>Hi, I'm Alessa. Welcome to my interactive portfolio! Walk through my journey and click on buildings to explore my projects.</p>
             <div class="social-icons">
                 <a href="https://github.com/alessa-weiler" target="_blank">GitHub</a>
                 <a href="https://linkedin.com/in/alessaweiler" target="_blank">LinkedIn</a>
                 <a href="mailto:alessa@pont-diagnostics.com">Email</a>
                 <a href="https://twitter.com/alessa_weiler" target="_blank">Blog</a>
             </div>
-        </section>
-        
-        
-        <section class="posts">
-            <h3>Favourite projects over the years</h3>
-            <ul>
-                <li>
-                    <span>2025</span> 
-                    <a href="about.html"> Getting a hobby </a>
-                </li>
-                <li>
-                    <span>2025</span> 
-                    <a href="about.html"> Learning how to socialise </a>
-                </li>
-                <li>
-                    <span>2025</span> 
-                    <a href="about.html"> Flopping to find myself </a>
-                </li>
-                <li>
-                    <span>2025</span> 
-                    <a href="about.html"> nGENEsis </a>
-                </li>
-                
-                <li>
-                    <span>2024</span> 
-                    <a href="about.html"> The gene network pivot that wasn't </a>
-                </li>
-                <li>
-                    <span>2024</span> 
-                    <a href="about.html"> Computational gene drive project with the Windbichler Lab </a>
-                </li>
-                <li>
-                    <span>2023</span> 
-                    <a href="about.html"> Raising my Bernese Mountain Dog puppy Moose </a>
-                </li>
-                <li>
-                    <span>2023</span>
-                    <a href="about.html"> Brain organoids! </a>
-                </li>
-                <li>
-                    <span>2022</span>
-                    <a href="about.html"> First Public Health Project for the Indian Government </a>
-                </li>
-                <li>
-                    <span>2022</span>
-                    <a href="about.html"> First wet and dry lab project investigating the role of Smg1 in stem cell differentiation with the Senner Lab </a>
-                </li>
-                <li>
-                    <span>2021</span>
-                    <a href="about.html"> Literature review for entheon biomedical </a>
-                </li>
-                <li>
-                    <span>2020</span> 
-                    <a href="about.html"> Tour du Mont Blanc (10 day hike) </a>
-                </li>
-                <li>
-                    <span>2019</span> 
-                    <a href="about.html"> Building a mind controlled video game with arduino </a>
-                </li>
-                <li>
-                    <span>2018</span> 
-                    <a href="about.html"> Hatching autistic quail </a>
-                </li>
-            </ul>
-        </section>
-    </main>
+        </div>
+
+        <div id="instructions">
+            <p>Use <strong>W A S D</strong> to move | <strong>Mouse Wheel</strong> to zoom | <strong>Shift</strong> to run | <strong>Click</strong> buildings to interact</p>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <div id="info-panel">
+            <button id="close-btn">&times;</button>
+            <h3 id="experience-title"></h3>
+            <p id="experience-year"></p>
+        </div>
+    </div>
+
+    <script type="module" src="/game.js"></script>
 </body>
 </html>
