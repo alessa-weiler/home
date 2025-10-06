@@ -32,7 +32,11 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-document.body.appendChild(renderer.domElement);
+renderer.domElement.style.position = 'fixed';
+renderer.domElement.style.top = '0';
+renderer.domElement.style.left = '0';
+renderer.domElement.style.zIndex = '1';
+document.body.insertBefore(renderer.domElement, document.body.firstChild);
 
 // Lighting
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
