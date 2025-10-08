@@ -16,70 +16,104 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="work.html">Work</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Main content of the About Page -->
     <main>
+        <section class="about-intro">
+            <h2>Designer who codes, scientist who builds</h2>
+            <p>I design and build tools that help people understand each other better. My background in neuroscience and psychology taught me how humans work. My startup experience taught me how to ship products. And my comedy hobby taught me that if you can't explain something simply, you don't understand it yet.</p>
+            <p>Currently finishing my MSc in Psychology at Birkbeck while building Pont, an AI-powered platform that helps people find therapists they'll actually click with. Before that: gene drives at Imperial, brain organoids at MRC-LMB, and a failed-but-educational gene testing startup that taught me the difference between cool science and useful products.</p>
+        </section>
+
         <section class="about-section">
-            <h2>Favourite Projects Over the Years</h2>
+            <h2>How I got here</h2>
+            
             <div class="year-project">
-                <h3>2025 - Getting a hobby</h3>
-                <p>After reading Rest, decided to get a hobby to be more effective and happier overall. Tried a two-month belly dance course, climbing, salsa, bachata, long and short distance running, pilates, and got my 200-hour yoga teacher training (I lost my first certificate). Then had a major life event and ended up on stage doing stand-up. Turns out I'm actually pretty funny.</p>
-            </div>
-            <div class="year-project">
-                <h3>2025 - Learning how to socialise </h3>
-                <p>Started volunteering with autistic kids, helping run friendship-building sessions. Essentially events and conversation moderating to help kids learn social rules in a safe environment. Loneliness is a big theme here. Watching real connections form has been one of the best parts of my year.</p>
-            </div>
-            <div class="year-project">
-                <h3>2025 - Flopping to find myself</h3>
-                <p>After a various talks with clinicians about a vague proof-of-concept I was half-pitching (journal entries and Apple Health data to track what happens between sessions - first proper Expo/React Native app with Typescript, CSS, HTML), I realized it wasn't all that useful. Unless it was an eating disorder or addiction, most clinicians just weren't that interested. I wasn't that married to it anyway—it was basically a cheaper, friendlier spin-off of the gene-testing idea. Then March happened. I had a bunch of meetings with investors, looked at my deck, and had a full-on night-before-pitch epiphany. I scrapped everything and decided to go with a problem I'd actually been living: How do you find the right therapist? How do you predict which people someone will actually click with? I've spent most of my life trying to systematize human interaction because otherwise I feel like an alien. So I built a terminal prototype where two GPT-3s with pre-defined personalities talked to each other. It was fun but expensive as hell. So I turned it into a whole thing—combined social simulation principles and recommender systems into a custom algorithm, then built it into a full-stack Flask app with login, booking, and Stripe. Tried to get clinicians onboard. Too risky, too early. So I repurposed the core engine to build a second app: this time, for finding friends you actually vibe with.</p>
+                <h3>2025 - Building Pont: From therapist matching to friendship compatibility</h3>
+                <p>Started with a problem I'd been living: How do you find the right therapist? I've spent most of my life trying to systematize human interaction because otherwise I feel like an alien. So I built a prototype where two GPT agents with pre-defined personalities talked to each other—essentially simulating therapeutic conversations to predict compatibility.</p>
+                <p>It was fun but expensive as hell. So I turned it into something real: combined social simulation principles with recommender systems, built a full-stack Flask app with TypeScript, designed the entire interface from scratch (user flows, matching algorithm visualization, onboarding sequences), and integrated Stripe for booking. Conducted 15+ clinician interviews to refine the matching algorithm and improve accessibility.</p>
+                <p>When therapists said it was too risky to adopt early-stage, I pivoted the core compatibility engine into a friend-matching platform. Same fundamental challenge—predicting human connection—different use case. Currently iterating based on user feedback.</p>
+                <p><strong>What I learned:</strong> How to design developer-facing features (API documentation, configuration interfaces), how to balance technical complexity with user simplicity, and that the best research happens when you're solving your own problem.</p>
             </div>
 
             <div class="year-project">
-                <h3>2024 - nGENEsis Diagnostics </h3>
-                <p>Applied solo to YC with a gene network psychiatry idea—made it to the top 10% (woot!). Surbhi said get a cofounder. Great advice that I ignored after doing hours of user interviews and speaking with people who work in gene-testing companies. Turns out the tests people actually need are expensive and hard to access, and the "affordable" ones are usually subsidized by selling user data. Whole-genome sequencing was the level I'd need to analyze complete gene networks, and it's still pricey. Plus a couple of datasets I was counting on fell through. The only model that penciled out was to sell patient data or charge obscene fees (or water down the science to avoid WGS). Even then, it would be hard to know what to charge for the data to break even, let alone make a profit. The business model was more about hiking up the price of data than actually helping people. Hard pass. I'm parking it until WGS is cheap and boring. Kept my ethics, lost the pitch. Worth it.</p>
+                <h3>2025 - Learning to design for neurodivergent users</h3>
+                <p>Started volunteering with Spectrum Socials, helping run friendship-building sessions for autistic kids (ages 5-16). I'm essentially event coordinator and conversation moderator—designing social experiences that help kids learn interaction patterns in a safe environment.</p>
+                <p>Loneliness is a massive theme here. Watching real connections form between kids who struggle socially has fundamentally changed how I think about interface design. When you're designing for people who interpret the world differently, every micro-interaction matters. Every transition needs to be predictable. Every error message needs to be kind.</p>
+                <p>This experience directly influences how I approach UX: clear feedback loops, reduced cognitive load, multiple pathways to the same outcome. Universal design isn't just accessible design—it's better design for everyone.</p>
             </div>
 
             <div class="year-project">
-                <h3>2024 - Computational gene drive project with the Windbichler Lab</h3>
-                <p>This project was the first of two projects in my master's. It's where I truly put my coding skills to use to build a computational pipeline, where I wrote code to extract and quantify guide RNA sequences from different gene drives, in order to input it into a multivariate model to see whether gRNA sequence scores significantly influenced the inheritance rate of the overall gene drive. I then quantified the expression levels as measured by RNAseq of different promoters, to see if the expression of promoters at different life stages significantly influenced the inheritance rates of gene drives. Coding languages used include bash, R and Python. Code sharing with my supervisor Seb was done in GitHub.</p>
+                <h3>2024 - nGENEsis Diagnostics: When the business model breaks the ethics</h3>
+                <p>Applied solo to Y Combinator with a gene network psychiatry idea—made it to the top 10%. The concept: use whole-genome sequencing to analyze complete gene networks for psychiatric treatment optimization. Did hours of user interviews with clinicians and people at gene-testing companies.</p>
+                <p>Here's what killed it: The tests people actually need are expensive and hard to access. The "affordable" ones subsidize costs by selling user data. The only model that penciled out was to either sell patient data or charge obscene fees. The business model was fundamentally about hiking up the price of data rather than helping people.</p>
+                <p><strong>Hard pass.</strong> I'm parking it until whole-genome sequencing is cheap and boring. Kept my ethics, lost the pitch. Worth it.</p>
+                <p><strong>What I learned:</strong> Sometimes the most important design decision is knowing when <em>not</em> to build something. Also learned how to conduct systematic user research, synthesize conflicting stakeholder needs, and present complex technical concepts to non-technical decision-makers.</p>
             </div>
 
             <div class="year-project">
-                <h3>2023 - Raising my Bernese Mountain Dog puppy Moose</h3>
-                <p>Ah - Moose. I put a deposit for him in January. He was born end of April, I picked him in May and picked him up literally the week after my exams were done (after the May Ball and a fun trip to Spain of course). When I first got him I didn't feel the 'click' I expected, and I struggled a lot with seemingly everything. Potty training took months because he refused to go to the toilet on anything that wasn't carpet. I tried sitting outside waiting for hours with a book, but he would hold it for literal hours until we went inside and he would immediately go on the carpet. It was exhausting. I took him outside every two hours - including in the middle of the night, and stood outside for about an hour at the very least each time. Quickly figured out that he's happy going on a carpet outside, so that's what I did for a month. Right when he was potty trained, I had a lab placement at the MRC-LMB to work on brain organoids which I was hyped about, but that meant he would have to be home alone for hours at a time. Ended up making it work by cycling back and forth over lunch to check in on him and take him out. Moved back to London to start my masters and he picked up a parasite. The parasite made him super aggressive. Suggestion to use a muzzle. Really helped my confidence to walk him without fear. Had a feeling he had a parasite. Treated the parasite. He stopped biting but started having problems with Scooby and other dogs. Got him fixed. He is much better but still a work in progress. Training in progress.</p>
+                <h3>2024 - Computational gene drives: Building analysis pipelines that actually work</h3>
+                <p>Part of my MRes at Imperial. Built a computational pipeline from scratch to extract and quantify guide RNA sequences from different gene drives, then fed that into a multivariate model to see if gRNA sequence scores influenced inheritance rates.</p>
+                <p>Also quantified promoter expression levels using RNAseq data to understand how timing affects gene drive success. Used Bash, R, and Python. Collaborated with my supervisor Seb via GitHub—learned proper version control, code review processes, and how to write documentation that future-me wouldn't hate.</p>
+                <p><strong>What I learned:</strong> How to build data analysis workflows, how to debug complex multi-step pipelines, and that good documentation is a love letter to your future self. Also: scientists desperately need better tools. Every analysis required duct-taping together three different scripts in different languages. There's so much room for better developer experience in research computing.</p>
             </div>
 
             <div class="year-project">
-                <h3>2022 - First Public Health Project for the Indian Government</h3>
-                <p> Honestly have always been a bit of a social justice warrior. As a kid in suburbian Canada I would write to my local MP to present my solutions for global warming. They didn't really want to hear a 9-year-old's opinion so I presented it to my primary school instead, and put posters around my neighbourhood. So when the opportunity to work on a public health project cropped up at university I feel like my inner child squealed a little bit. Helped with the data analysis of population census data and paper writing to better understand what factors influence medication adherence in India. You can see the published paper <a href=https://pubmed.ncbi.nlm.nih.gov/37900158/> here </a> </p>
-            </div>
-            <div class="year-project">
-                <h3>2022 - First wet and dry lab project investigating Smg1</h3>
-                <p>Found it really difficult to get this first placement. Applied around the board to about 50 labs - my interest was more in translational science, women's health and neurobiology, so this one was a little out of my comfort zone (hardcore molecular biology). Still took it one step at a time, read a textbook and a couple reviews to wrap my head around things and then I delved straight in. Really enjoyed my time there and my supervisor was really supportive, so I stayed on for the rest of the year for my bachelor's thesis as well. Ended up applying for a couple PhDs in the sphere, unsuccesfully (fortunately? unfortunately? wouldn't be going out on a limb starting something if I was doing a PhD I guess.... had to touch some grass at some point). No biggie though because I learnt a lot and ended up becoming a lot more interested in molecular biology and delving into that at the Master's level so that was cool</p>
+                <h3>2022 - First public health project: Designing for India's medication adherence crisis</h3>
+                <p>Worked on a public health project analyzing population census data to understand what factors influence medication adherence in India. Helped with data analysis in R and contributed to the published paper (<a href="https://pubmed.ncbi.nlm.nih.gov/37900158/">see here</a>).</p>
+                <p>This was my first experience working with messy, real-world data at scale. Census data is gloriously chaotic—missing fields, inconsistent formatting, data entry errors. Had to design cleaning pipelines that were robust enough to handle edge cases but flexible enough to preserve legitimate outliers.</p>
+                <p><strong>What I learned:</strong> How to work with large datasets, how to communicate statistical findings to policymakers, and that the most important question in data analysis is "what decision will this inform?"</p>
             </div>
 
             <div class="year-project">
-                <h3>2021 - Literature review for Entheon Biomedical</h3>
-                <p>First time working for a startup. Absolutely loved it. Obsessed. Had to wear many different hats, so to speak. Helped with the design and building of pitch decks in coordination with the design team, taking meeting minutes - all that schnazz. But my main task was to fine tune the product after a merger. It was a gene test kit for the dosage of psychedelics for psychedelic assisted therapy. I was to construct a list - according to an in-depth literature review - of all relevant genes to be tested as part of the kit, as well as their level of relevance and to which drugs in particular. Presented my findings to the CEOs of both companies. Delighted that this resulted in a modification of the gene test kit. Learnt not only how to build a product and refine it but also how to communicate with a team and with key stakeholders. That was super fun.</p>
+                <h3>2021 - Entheon Biomedical: Literature review + learning design collaboration</h3>
+                <p>First time working for a startup. Absolutely loved it. Had to wear many different hats. My main task was to refine the product after a merger—a gene test kit for dosing psychedelics in psychedelic-assisted therapy. Conducted an in-depth literature review, presented findings to the CEOs of both companies, and my research resulted in modifications to the gene test kit.</p>
+                <p>Also worked alongside the design team on pitch deck design. My job: translate dense scientific concepts into clear visuals for investor presentations. Learned how to simplify gene networks into digestible diagrams, turn research data into scannable charts, and structure slides around single key messages. This was my first experience collaborating with a professional designer—I'd provide scientific content and rough concepts, designer would create the visual, we'd iterate for accuracy and clarity.</p>
+                <p><strong>What I learned:</strong> How to synthesize complex scientific literature into actionable product decisions, how to communicate with stakeholders who have different priorities (science vs. business vs. regulatory), and that startups move fast—you need to be comfortable making decisions with incomplete information. Also learned that design is fundamentally about translation: making complex information accessible isn't dumbing it down, it's respecting your audience's time and cognitive load.</p>
             </div>
 
             <div class="year-project">
-                <h3>2020 - Tour du Mont Blanc (10 day hike)</h3>
-                <p>Graduated from high school during covid, started my first year at the beginning of the pandemic. Not crazy fun all the time, but this instance was. After completing my first half marathon two weeks prior, I packed my bags and walked through Switzerland, France and Italy over the course of 10 days, climbing on average one mountain a day and carrying a massive heavy bag of random things ranging from clothes to snacks to a ukelele and a nikon camera. Had to send the ukelele back home halfway through after having twisted my ankle and not being able to support as much weight. Rather unfortunate to not be able to bless the Swiss with my lovely musicality skills but it's probably for the best as they probably would have deported me. Continued the last five days on a twisted ankle. Completed the hike and enjoyed a lovely warm shower (I was very stinky).</p>
+                <h3>2020-2021 - Autism Research Centre: Only student researcher for 8 months</h3>
+                <p>Worked with Varun Warrier and Armandina Almanza-Gutierrez to analyze data in R, investigating differences in masking behavior between autistic girls and autistic boys. This was my first real experience with behavioral data analysis and working in a research environment.</p>
+                <p><strong>What I learned:</strong> How to work independently on long-term projects, how to ask good questions when stuck, and that understanding human behavior requires both quantitative rigor and qualitative empathy. You can't reduce people to data points.</p>
             </div>
 
             <div class="year-project">
-                <h3>2019 - Building a mind-controlled video game with Arduino</h3>
-                <p>Honestly can't remember much about this project, although it was quite cool. Unsure if we ended up getting this to work, but got some EEG probes and followed a guide to try to make a mind controlled video game. To be honest I think it made me believe less in the ability to sense information from EEG headsets and made me skeptical of all those EEG headsets on line to 'track brain waves' - why did I need to focus so hard for it to work if it should just pick up information in the background. Definitely EEG needs much more sensitivity for it to be an accurate tool in the future.</p>
+                <h3>2019 - Mind-controlled video game with Arduino: When EEG headsets lie</h3>
+                <p>Built (or attempted to build) a mind-controlled video game using EEG probes and Arduino. Honestly can't remember if we got it fully working, but it made me deeply skeptical of consumer EEG devices.</p>
+                <p>If I needed to focus <em>that hard</em> to get a signal, it's not really "passive brain monitoring," is it? Made me realize that a lot of consumer neurotech is selling the <em>aesthetic</em> of science rather than actual functionality. EEG needs way more sensitivity before it's useful outside controlled lab settings.</p>
+                <p><strong>What I learned:</strong> How to prototype with hardware, how to debug sensor data, and the importance of honest evaluation—sometimes the most valuable outcome is learning what <em>doesn't</em> work.</p>
             </div>
+        </section>
+        <div class="year-project">
+            <h3>2018 - First real design job: Ticketmaster internship at 15</h3>
+            <p>Somehow convinced Ticketmaster to let a 15-year-old intern with their software and design teams for the summer. Was tasked with designing and building my version of an update to their mobile app, then presenting it to the teams.</p>
+            <p>Did user research (interviewed everyone I knew about ticket-buying frustrations), designed a prototype (simplified checkout, improved event discovery, better seat visualization), built it with HTML/CSS/JavaScript, and presented to a room of professional designers and engineers. Terrifying. Also exhilarating.</p>
+            <p><strong>What I learned:</strong> How to present design rationale, how to take critique without taking it personally, and that design decisions need to balance user needs with business constraints. Also learned that 15-year-old me's aesthetic (gradients everywhere!) was questionable, but the research process was solid.</p>
+            <p>This was the first time I realized you could combine design, code, and understanding people into an actual career. Also the first time I used Figma and understood what a design system was.</p>
+        </div>
 
-            <div class="year-project">
-                <h3>2018 - Hatching autistic quail</h3>
-                <p>I think this is often what people remember me for but it was actually one of my older projects. At this point I had hatched ducks and chickens the two years prior. Started with an incubator made out of two wineboxes, a lamp and some styrofoam insulation with a cup of water - which was rather unsuccessful unfortunately (RIP Jimmy 1.0 - name of the first egg from this incubator that never hatched). Upgraded to a Brinsea octagon 20 and never looked back - that thing incubated like a real bird. Probably near 80% hatch rate, including jimmy 2.0 - who ended up imprinting on me and running around the house. Was reading a lot of Simon Baron-Cohen's stuff at the time and had just finished his book prenatal testosterone in mind which was actually really persuasive to my easily influenced teenage brain. Wrote an article on Medium on how we need to embrace female-male brain differences. Got loads of praise from men. Was skeptical - worried about spreading misinformation accidentally so naturally tried it at home. Bought some quail eggs off ebay and 3-5 business days later I was doing my science. Instead of water I added humidity with soy milk which has phytoestrogens. Given the permeability of eggs the phytoestrogens should go straight to the growing chick, and I could monitor growth during development by candling the eggs. Then I could look at behavioural outcomes. N=3 and results were null (no difference) but it was still fun so heyo.</p>
-            </div>
+        <section class="about-philosophy">
+            <h2>How I think about design</h2>
+            <p><strong>Start with the user's actual problem, not the solution you want to build.</strong> I killed nGENEsis because I fell in love with the science instead of the problem. With Pont, I started with "finding the right therapist is impossible" and let that drive every decision.</p>
+            
+            <p><strong>Build things you can actually ship.</strong> My background in biology taught me experimental design. My startup experience taught me that experiments need to end. Prototype fast, test with real users, iterate based on feedback. Don't wait for perfect.</p>
+            
+            <p><strong>Empathy is a skill, not a personality trait.</strong> My work with autistic kids taught me this. Understanding users isn't about "being nice"—it's about structured observation, asking good questions, and recognizing your own assumptions. Research methods matter.</p>
+            
+            <p><strong>Technical constraints are design constraints.</strong> I code my own prototypes because I need to know what's actually possible. When you understand how the backend works, you make smarter frontend decisions. When you understand API design, you build better developer tools.</p>
+            
+            <p><strong>Good design is invisible until it breaks.</strong> The best interfaces feel obvious in retrospect. Getting there requires iteration, user testing, and the humility to realize your first idea probably isn't the right one.</p>
+        </section>
+
+        <section class="about-currently">
+            <h2>What I'm up to now</h2>
+            <p>Finishing my MSc in Psychology at Birkbeck (evening classes, graduating 2026), iterating on Pont based on user feedback, volunteering with autistic kids every other weekend, and doing stand-up comedy twice a month. Turns out I'm actually pretty funny.</p>
+            <p>Also raising a Bernese Mountain Dog named Moose who taught me more about behavioral reinforcement than any textbook ever did. Potty training a stubborn puppy while working full-time on a startup is basically a crash course in patience, consistency, and iterative problem-solving.</p>
         </section>
     </main>
 
