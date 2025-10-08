@@ -14,8 +14,8 @@ const experiences = [
 
 // Scene setup
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x87CEEB); // Sky blue
-scene.fog = new THREE.Fog(0x87CEEB, 50, 200);
+scene.background = new THREE.Color(0xffffff); // White background
+scene.fog = new THREE.Fog(0xffffff, 50, 200);
 
 // Camera setup
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -47,10 +47,10 @@ directionalLight.shadow.mapSize.width = 2048;
 directionalLight.shadow.mapSize.height = 2048;
 scene.add(directionalLight);
 
-// Ground - extended to cover all buildings
+// Ground - white to match background
 const groundGeometry = new THREE.PlaneGeometry(300, 50);
 const groundMaterial = new THREE.MeshStandardMaterial({
-    color: 0x90EE90,
+    color: 0xffffff,
     roughness: 0.8
 });
 const ground = new THREE.Mesh(groundGeometry, groundMaterial);
@@ -59,10 +59,10 @@ ground.position.x = 75; // Center it over the path
 ground.receiveShadow = true;
 scene.add(ground);
 
-// Path
+// Path - subtle gray line
 const pathGeometry = new THREE.PlaneGeometry(300, 8);
 const pathMaterial = new THREE.MeshStandardMaterial({
-    color: 0xD2B48C,
+    color: 0xf5f5f5,
     roughness: 0.9
 });
 const path = new THREE.Mesh(pathGeometry, pathMaterial);
@@ -101,51 +101,45 @@ const mouse = new THREE.Vector2();
 experiences.forEach((exp, index) => {
     const buildingGroup = new THREE.Group();
 
-    // Vary building types
+    // CSG-style geometric shapes with clean, minimal colors
     let buildingMesh;
-    const colors = [0x8B4513, 0xA0522D, 0xCD853F, 0xD2691E, 0xDEB887];
+    const colors = [0x4A90E2, 0x50C878, 0xF5A623, 0xE94B3C, 0x9013FE, 0x00D084, 0xFF6B6B, 0x4ECDC4];
     const color = colors[index % colors.length];
 
-    if (index % 3 === 0) {
-        // Tower
-        const geometry = new THREE.BoxGeometry(3, 6, 3);
-        const material = new THREE.MeshStandardMaterial({ color });
-        buildingMesh = new THREE.Mesh(geometry, material);
-        buildingMesh.position.y = 3;
+    // Material with clean, solid look
+    const material = new THREE.MeshStandardMaterial({
+        color: color,
+        metalness: 0.1,
+        roughness: 0.4,
+        flatShading: true // CSG-style flat shading
+    });
 
-        // Roof
-        const roofGeometry = new THREE.ConeGeometry(2.5, 2, 4);
-        const roofMaterial = new THREE.MeshStandardMaterial({ color: 0x8B0000 });
-        const roof = new THREE.Mesh(roofGeometry, roofMaterial);
-        roof.position.y = 7;
-        roof.castShadow = true;
-        buildingGroup.add(roof);
-    } else if (index % 3 === 1) {
-        // Wide building
-        const geometry = new THREE.BoxGeometry(4, 4, 3);
-        const material = new THREE.MeshStandardMaterial({ color });
-        buildingMesh = new THREE.Mesh(geometry, material);
-        buildingMesh.position.y = 2;
-
-        const roofGeometry = new THREE.BoxGeometry(4.5, 0.5, 3.5);
-        const roofMaterial = new THREE.MeshStandardMaterial({ color: 0x696969 });
-        const roof = new THREE.Mesh(roofGeometry, roofMaterial);
-        roof.position.y = 4.5;
-        roof.castShadow = true;
-        buildingGroup.add(roof);
-    } else {
-        // Cylinder building
-        const geometry = new THREE.CylinderGeometry(1.5, 1.5, 5, 8);
-        const material = new THREE.MeshStandardMaterial({ color });
+    if (index % 5 === 0) {
+        // Sphere
+        const geometry = new THREE.SphereGeometry(2, 16, 16);
         buildingMesh = new THREE.Mesh(geometry, material);
         buildingMesh.position.y = 2.5;
-
-        const roofGeometry = new THREE.ConeGeometry(2, 1.5, 8);
-        const roofMaterial = new THREE.MeshStandardMaterial({ color: 0x8B0000 });
-        const roof = new THREE.Mesh(roofGeometry, roofMaterial);
-        roof.position.y = 5.5;
-        roof.castShadow = true;
-        buildingGroup.add(roof);
+    } else if (index % 5 === 1) {
+        // Torus
+        const geometry = new THREE.TorusGeometry(1.5, 0.6, 16, 32);
+        buildingMesh = new THREE.Mesh(geometry, material);
+        buildingMesh.position.y = 2;
+        buildingMesh.rotation.x = Math.PI / 2;
+    } else if (index % 5 === 2) {
+        // Octahedron
+        const geometry = new THREE.OctahedronGeometry(2);
+        buildingMesh = new THREE.Mesh(geometry, material);
+        buildingMesh.position.y = 2.5;
+    } else if (index % 5 === 3) {
+        // Tetrahedron
+        const geometry = new THREE.TetrahedronGeometry(2.5);
+        buildingMesh = new THREE.Mesh(geometry, material);
+        buildingMesh.position.y = 2.5;
+    } else {
+        // Dodecahedron
+        const geometry = new THREE.DodecahedronGeometry(2);
+        buildingMesh = new THREE.Mesh(geometry, material);
+        buildingMesh.position.y = 2.5;
     }
 
     buildingMesh.castShadow = true;
