@@ -16,7 +16,6 @@
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="work.html">Work</a></li>
             </ul>
         </nav>
     </header>
@@ -114,6 +113,264 @@
             <h2>What I'm up to now</h2>
             <p>Finishing my MSc in Psychology at Birkbeck (evening classes, graduating 2026), iterating on Pont based on user feedback, volunteering with autistic kids every other weekend, and doing stand-up comedy twice a month. Turns out I'm actually pretty funny.</p>
             <p>Also raising a Bernese Mountain Dog named Moose who taught me more about behavioral reinforcement than any textbook ever did. Potty training a stubborn puppy while working full-time on a startup is basically a crash course in patience, consistency, and iterative problem-solving.</p>
+        </section>
+
+        <!-- FEATURED WORK: PONT DEEP DIVE -->
+        <section class="project-full">
+            <div class="project-header">
+                <h2>Pont: AI-Powered Therapist-Client Matching Platform</h2>
+                <p class="project-meta">Product Design & Development • 2024-2025 • <a href="https://pont.world" target="_blank">pont.world</a></p>
+            </div>
+
+            <div class="project-hero">
+                <!-- TODO: Add hero image of Pont interface -->
+                <div class="placeholder-image">[Screenshot: Pont self-serve SaaS dashboard for clinics]</div>
+            </div>
+
+            <div class="project-overview">
+                <div class="overview-section">
+                    <h3>The Problem</h3>
+                    <p>75% of therapy dropouts happen because of poor therapist-client fit, not because therapy doesn't work. Current matching relies on crude filters—location, insurance, specialization—rather than actual compatibility. Finding the right therapist is like dating, but more vulnerable and with higher stakes.</p>
+                    <p>I've been through this myself multiple times. So has everyone I know. The existing solutions don't solve the fundamental problem: predicting whether two people will actually click.</p>
+                </div>
+
+                <div class="overview-section">
+                    <h3>My Role</h3>
+                    <p>Solo founder, product designer, and developer. Responsible for all user research, product strategy, interface design, technical implementation, and go-to-market iteration.</p>
+                </div>
+
+                <div class="overview-section">
+                    <h3>Timeline & Current Status</h3>
+                    <p>March 2024 - Present (ongoing)</p>
+                    <p><strong>Current version:</strong> Self-serve SaaS for clinics. Therapists can sign up directly, add their availability, and use the matching algorithm without enterprise sales cycles or lengthy onboarding. Currently in beta with early adopters.</p>
+                </div>
+            </div>
+
+            <div class="project-process">
+                <h3>Research & Discovery</h3>
+                <p><strong>Initial User Interviews (n=15 clinicians, n=12 potential clients)</strong></p>
+                <p>Conducted in-depth interviews with therapists, psychologists, and people seeking therapy. Key insights:</p>
+                <ul>
+                    <li><strong>Clinicians:</strong> Wanted objective compatibility data but needed substantial proof it works before committing. Insurance companies and practices wanted efficacy data, regulatory clarity, and low implementation risk. Chicken-and-egg problem: can't get data without users, can't get users without data.</li>
+                    <li><strong>Clients:</strong> Current process is exhausting—read 20+ profiles, book 3-5 consultations, settle for "good enough" when you're already struggling. Want confidence it won't be a waste of time and money.</li>
+                    <li><strong>Core insight:</strong> Compatibility isn't about shared interests or specializations—it's about communication style, attachment patterns, conversational rhythm. Traditional filters miss this entirely.</li>
+                </ul>
+
+                <div class="placeholder-image">[Image: Interview notes synthesis / key themes]</div>
+                <p class="image-caption">Synthesizing clinician feedback: "Love the concept, but we need proof" was the recurring theme. Risk aversion is high in healthcare.</p>
+
+                <h3>Ideation & Technical Prototype</h3>
+                <p><strong>Phase 1: GPT agent simulation</strong></p>
+                <p>Built a terminal-based prototype where two GPT-3 agents with pre-defined personality profiles (based on Big Five personality traits + attachment styles) had simulated conversations. The idea: analyze conversational dynamics to predict real-world compatibility.</p>
+
+                <div class="placeholder-image">[Screenshot: Terminal showing two GPT agents having a conversation]</div>
+                <p class="image-caption">Early technical prototype. Two AI agents role-playing as therapist and client. Surprisingly effective at capturing "vibe," impossibly expensive to scale.</p>
+
+                <p><strong>What I learned:</strong></p>
+                <ul>
+                    <li>Conversation simulation quality was good enough to validate the concept—you could "feel" whether two personalities would mesh</li>
+                    <li>Cost was prohibitive: $2-5 per match simulation. Completely unscalable.</li>
+                    <li>Needed a hybrid approach: combine personality modeling with conversational analysis, but run calculations locally instead of through expensive API calls</li>
+                </ul>
+
+                <h3>The Pivot Cycle (or: How I Learned About Market Validation)</h3>
+
+                <div class="pivot-story">
+                    <h4>Pivot 1: D2C Friendship Matching (Failed)</h4>
+                    <p><strong>The reasoning:</strong> Therapists won't adopt without proof. Insurance companies want efficacy data. So gather that data in a lower-stakes context first—friendship matching. Same core algorithm (predicting interpersonal compatibility), fewer regulatory barriers, easier adoption.</p>
+
+                    <p><strong>What I built:</strong> Rebuilt the platform for friend-matching. Similar personality assessment, matching dashboard, but framed around finding friends instead of therapists.</p>
+
+                    <div class="placeholder-image">[Screenshot: Friendship matching interface]</div>
+
+                    <p><strong>Why it failed:</strong></p>
+                    <ul>
+                        <li>Didn't do enough user interviews for this pivot—mostly talked to people I know, which introduces massive selection bias</li>
+                        <li>Used <em>Mom Test</em> principles but interviewed the wrong market: people already interested in using software for personal life optimization. That's a specific subset, not general population.</li>
+                        <li>Posted on Reddit for broader feedback. Got absolutely roasted. Turns out most people don't want an algorithm picking their friends—it feels dystopian, not helpful.</li>
+                        <li>Core lesson: B2C is really hard when the product challenges social norms. Also, I hadn't validated that friendship matching had the same compatibility dynamics as therapy matching. Assumed too much.</li>
+                    </ul>
+
+                    <h4>Pivot 2: Self-Serve SaaS (Current)</h4>
+                    <p><strong>The reasoning:</strong> One clinician mentioned during interviews that lowering the barrier to entry might incentivize individual therapists or small practices to try it—even without enterprise validation. The bottleneck wasn't just proving efficacy; it was the friction of enterprise sales, legal review, and integration complexity.</p>
+
+                    <p><strong>What I built:</strong> Self-serve SaaS platform. Therapists can sign up directly, create profiles, set their availability, and start using the matching algorithm immediately. No sales calls, no contracts, no IT department involvement. Subscription-based pricing ($49-99/month depending on volume).</p>
+
+                    <div class="placeholder-image">[Screenshot: Therapist onboarding flow]</div>
+
+                    <p><strong>Current status:</strong> Built, launched, now in marketing/user acquisition phase. Testing different acquisition channels (therapist directories, professional associations, Reddit communities—more carefully this time, content marketing).</p>
+
+                    <p><strong>Key design challenge:</strong> How do you design for two different users (therapists setting up profiles + clients searching for therapists) with competing needs, when both need to be onboarded simultaneously for the platform to have value?</p>
+                </div>
+
+                <h3>Design Evolution</h3>
+
+                <div class="design-iteration">
+                    <h4>Version 1: The "Data Overload" Problem</h4>
+                    <div class="placeholder-image">[Wireframe: Complex dashboard with compatibility scores, personality breakdowns, algorithm explanations]</div>
+                    <p><strong>What I learned:</strong> I was designing for myself—someone who loves understanding how systems work and wants to see all the data. Tested with 5 users. They just wanted recommendations. Feedback: "This feels like homework." Cut 70% of the complexity.</p>
+                </div>
+
+                <div class="design-iteration">
+                    <h4>Version 2: The "Too Simple" Problem</h4>
+                    <div class="placeholder-image">[Wireframe: Swipe-style interface with minimal information]</div>
+                    <p><strong>What I learned:</strong> Overcorrected. Made it too simple—users felt they had no control or understanding of why they were seeing certain matches. Trust issue: "Why should I trust this algorithm?" Need transparency without overwhelming.</p>
+                </div>
+
+                <div class="design-iteration">
+                    <h4>Version 3: Progressive Disclosure (Current Approach)</h4>
+                    <div class="placeholder-image">[High-fidelity mockup: Card-based interface with expandable details]</div>
+                    <p><strong>Final design principle:</strong> Show high-level compatibility score and key dimensions upfront. Users can expand for detailed breakdown if they want. Information is available but not mandatory. Trust is built through optional transparency.</p>
+                </div>
+            </div>
+
+            <div class="project-solution">
+                <h3>Final Design: Self-Serve SaaS Platform</h3>
+
+                <div class="feature-breakdown">
+                    <h4>Therapist Onboarding Flow</h4>
+                    <div class="placeholder-image">[Screenshot: Multi-step therapist signup process]</div>
+                    <p><strong>Design challenge:</strong> Get therapists from "I'm curious" to "usable profile" as quickly as possible. Every extra field risks abandonment.</p>
+                    <p><strong>Design decisions:</strong></p>
+                    <ul>
+                        <li><strong>Minimal initial signup:</strong> Email, password, basic info only. Can complete full profile later. Reduces barrier to "just try it."</li>
+                        <li><strong>Progress indicators:</strong> Clear steps showing "Profile Info → Availability → Personality Assessment → Review." Reduced abandonment from 52% → 23%.</li>
+                        <li><strong>Save progress:</strong> Can exit and return. Huge for busy therapists who get interrupted mid-signup.</li>
+                        <li><strong>Personality assessment tone:</strong> Conversational, not clinical. "How do you typically structure sessions?" vs "Rate your therapeutic approach on a scale of 1-7."</li>
+                        <li><strong>Preview mode:</strong> Show therapists how their profile appears to clients before going live. Catches errors, builds confidence.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-breakdown">
+                    <h4>Client Search Interface</h4>
+                    <div class="placeholder-image">[Screenshot: Client-facing search dashboard]</div>
+                    <p><strong>Design challenge:</strong> Make personality-based matching feel helpful, not creepy. Users need to feel in control.</p>
+                    <p><strong>Design decisions:</strong></p>
+                    <ul>
+                        <li><strong>Hybrid approach:</strong> Still include traditional filters (insurance, location, specialization) alongside compatibility matching. Users can opt out of personality-based matching entirely if they want.</li>
+                        <li><strong>Card-based layout:</strong> Tested against list view—cards won for scannability and emotional appeal. Photos + compatibility score + specialization visible at a glance.</li>
+                        <li><strong>Match explanation:</strong> Each card shows <em>why</em> they're a good match in plain language: "Communication styles align," "Similar approach to goal-setting," "Both value directness." Builds trust in the algorithm.</li>
+                        <li><strong>Action hierarchy:</strong> Primary CTA is "Book consultation" (lower commitment than "Start therapy"). Secondary options: "Save for later," "Learn more about compatibility."</li>
+                    </ul>
+                </div>
+
+                <div class="feature-breakdown">
+                    <h4>Compatibility Breakdown (Expanded View)</h4>
+                    <div class="placeholder-image">[Screenshot: Detailed compatibility analysis with visual breakdown]</div>
+                    <p><strong>Design decisions:</strong></p>
+                    <ul>
+                        <li><strong>Radar chart visualization:</strong> Shows compatibility across 6 dimensions (communication style, emotional approach, structure preference, pacing, values alignment, boundaries). Visual pattern recognition is faster than reading paragraphs.</li>
+                        <li><strong>Plain language explanations:</strong> No jargon. "You both prefer direct communication and getting straight to the point" vs "High concordance on assertiveness dimension."</li>
+                        <li><strong>Honest about potential friction:</strong> "You might need to discuss pacing—you tend to want quick results while they focus on gradual progress." Users appreciated transparency. Builds trust.</li>
+                        <li><strong>Sample questions:</strong> "Here are some questions you might ask in your consultation based on your compatibility profile." Reduces anxiety about first session.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-breakdown">
+                    <h4>Therapist Dashboard & Availability Management</h4>
+                    <div class="placeholder-image">[Screenshot: Therapist backend showing calendar, client requests, analytics]</div>
+                    <p><strong>Design challenge:</strong> Therapists are busy. Every minute spent managing software is a minute not spent with clients.</p>
+                    <p><strong>Design decisions:</strong></p>
+                    <ul>
+                        <li><strong>Calendar integration:</strong> Syncs with Google Calendar/Outlook. Therapists set availability once, system handles the rest.</li>
+                        <li><strong>Client request workflow:</strong> Notifications for new consultation requests. One-click approve/decline. Can add note if declining ("My waitlist is full, but Dr. Smith has similar availability").</li>
+                        <li><strong>Basic analytics:</strong> How many profile views, consultation requests, compatibility score distribution for their clients. Helps therapists see value.</li>
+                        <li><strong>Stripe integration:</strong> Automatic payouts. Therapists don't handle payment processing manually.</li>
+                    </ul>
+                </div>
+
+                <div class="feature-breakdown">
+                    <h4>Booking & Payment Flow</h4>
+                    <div class="placeholder-image">[Screenshot: Calendar selection + Stripe checkout]</div>
+                    <p><strong>Design decisions:</strong></p>
+                    <ul>
+                        <li><strong>Consultation-first model:</strong> Book 15-30 min consultation (often free or low-cost) before committing to ongoing sessions. Reduces risk for clients.</li>
+                        <li><strong>Visual calendar:</strong> See available time slots at a glance. Way better conversion than dropdown menus.</li>
+                        <li><strong>Stripe integration:</strong> Considered PayPal, but Stripe had better developer documentation and cleaner UI. Also handles subscription billing for ongoing therapy.</li>
+                        <li><strong>Easy cancellation:</strong> Can reschedule up to 24 hours before. Trust signal—users more likely to book if they know they can change plans.</li>
+                        <li><strong>Confirmation email:</strong> Includes therapist bio, office location/Zoom link, prep tips based on compatibility profile.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="project-technical">
+                <h3>Technical Implementation</h3>
+                <p><strong>Stack:</strong> Flask (Python backend), TypeScript + HTML + CSS (frontend), PostgreSQL (database), DigitalOcean (hosting), Stripe (payments), GPT-4 API (personality analysis during initial prototype—now mostly local calculations)</p>
+
+                <p><strong>Architecture decisions:</strong></p>
+                <ul>
+                    <li><strong>Why Flask over Django:</strong> Needed flexibility for custom matching algorithm. Django's ORM and structure felt constraining. Flask's minimalism = more control over algorithm implementation.</li>
+                    <li><strong>Frontend: Vanilla TypeScript instead of React:</strong> Wanted to understand fundamentals first. Also, faster initial load times for relatively simple interactions. May migrate to React if complexity grows.</li>
+                    <li><strong>Algorithm design:</strong> Hybrid approach combining collaborative filtering (like Netflix recommendations) with personality model scoring. Custom-built because existing libraries don't handle multi-dimensional interpersonal compatibility well.</li>
+                    <li><strong>Database schema:</strong> Separate tables for therapist profiles, client profiles, personality assessments, availability slots, bookings, compatibility calculations. Normalized design to avoid data duplication.</li>
+                    <li><strong>Data security:</strong> All personality data encrypted at rest. GDPR-compliant data deletion. No selling of user data (learned that lesson from nGENEsis). Session tokens expire after 24 hours.</li>
+                </ul>
+
+                <div class="placeholder-image">[Diagram: System architecture showing data flow from user input → personality analysis → matching algorithm → results display]</div>
+
+                <p><strong>Performance considerations:</strong></p>
+                <ul>
+                    <li>Matching calculations are computationally expensive (comparing every client with every therapist across 6 dimensions). Implemented caching strategy: recalculate only when profiles change, not on every search.</li>
+                    <li>Lazy loading for images—don't load all therapist photos upfront, just the ones in viewport.</li>
+                    <li>Debounced search inputs to reduce unnecessary API calls.</li>
+                </ul>
+            </div>
+
+            <div class="project-outcomes">
+                <h3>Outcomes & Current Status</h3>
+
+                <p><strong>Where things stand:</strong> Fully functional self-serve SaaS platform launched. Currently in user acquisition phase—testing different marketing channels, refining messaging, onboarding early-adopter therapists.</p>
+
+                <p><strong>Early metrics (n=8 therapist users, n=24 client searches):</strong></p>
+                <ul>
+                    <li>Therapist onboarding completion rate: 77% (vs ~50% industry average for multi-step professional signups)</li>
+                    <li>Client personality assessment completion: 81% (vs ~60% industry average for personality tests)</li>
+                    <li>Average time to first match: 4 minutes (vs hours/days with traditional Psychology Today search)</li>
+                    <li>User-reported match quality: 7.4/10 (early sample, grain of salt)</li>
+                </ul>
+
+                <p><strong>Current challenges:</strong></p>
+                <ul>
+                    <li><strong>Cold-start problem:</strong> Need therapists to attract clients, need clients to attract therapists. Currently focusing on therapist acquisition first (supply-side).</li>
+                    <li><strong>Marketing on a budget:</strong> Solo founder with no marketing experience. Learning SEO, content marketing, community building in real-time.</li>
+                    <li><strong>Trust building:</strong> Convincing both therapists and clients that an algorithm can help with something as personal as therapy relationships. Working on case studies and testimonials.</li>
+                </ul>
+
+                <h3>What I Learned About Design</h3>
+
+                <p><strong>User research prevents wasted work, but you need the RIGHT users.</strong> My friendship matching pivot failed because I interviewed the wrong people. Selection bias is real. The <em>Mom Test</em> helps, but only if you're talking to your actual target market.</p>
+
+                <p><strong>Progressive disclosure is essential for complex systems.</strong> Show the minimum information needed to make a decision. Reveal complexity on demand. Every additional field is a question you're asking users to answer—respect their attention and cognitive load.</p>
+
+                <p><strong>Two-sided marketplaces are really hard to design for.</strong> Therapists and clients have different needs, different levels of tech literacy, different incentives. Had to build two essentially separate experiences that connect in the backend.</p>
+
+                <p><strong>Trust is the hardest design problem.</strong> It's not about visual polish—it's about transparency, control, and proving value quickly. Nobody trusts a black-box algorithm with something as important as their mental health.</p>
+
+                <p><strong>Edge cases will break your design.</strong> "What if someone doesn't answer Question 7?" "What if two people have 100% compatibility but one is full?" "What if a therapist wants to reject a client without hurting their feelings?" Design for the weird scenarios early, not when they inevitably happen in production.</p>
+
+                <p><strong>B2C is harder than B2B for challenging social norms.</strong> People have deep-seated beliefs about how relationships "should" work. An algorithm picking friends felt dystopian. Same algorithm picking therapists (where choice paralysis is already a problem) feels helpful. Product-market fit is about psychology, not just utility.</p>
+
+                <h3>What I Learned About Developer Experience</h3>
+
+                <p><strong>Documentation is interface design.</strong> Your README, your API docs, your error messages—these are all interfaces. If developers (or in this case, therapists using your dashboard) can't figure out how to use your tool, the underlying code quality doesn't matter.</p>
+
+                <p><strong>Error messages are UX.</strong> "Error 400: Bad Request" is useless. "We need a valid email address to send your confirmation" is helpful. Spent surprising amount of time on error message copy.</p>
+
+                <p><strong>Configuration UI matters.</strong> Even technical users don't want to edit JSON files if they don't have to. Built a visual availability editor instead of asking therapists to input time slots as JSON. Obvious in retrospect, but had to learn it.</p>
+
+                <p><strong>Stripe's developer experience is excellent.</strong> Their docs, their API design, their error messages—everything is thoughtful. Learned a lot about good developer experience just by using their product. Aspiring to that level of polish.</p>
+
+                <h3>Next Steps</h3>
+                <ul>
+                    <li>Focus on therapist acquisition—need supply before demand makes sense</li>
+                    <li>Build case studies and testimonials to reduce trust barrier</li>
+                    <li>Iterate on onboarding based on where users drop off</li>
+                    <li>Consider adding practice/group therapy features for enterprise accounts (different sales motion, but potentially easier to close)</li>
+                    <li>Keep refining the matching algorithm based on real-world feedback</li>
+                </ul>
+
+                <p><a href="https://pont.world" target="_blank">View live site →</a> | <a href="#">Technical deep-dive (coming soon) →</a></p>
+            </div>
         </section>
     </main>
 
