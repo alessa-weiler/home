@@ -12,7 +12,7 @@ const cards = [
         id: 'scene-ngenesis',
         geometry: 'icosahedron',
         color: 0x8B5CF6,
-        link: 'about.html'
+        link: 'https://www.loom.com/share/40badefe50b94b0399a806d8b330cedf?sid=a7ea7273-fa60-47c8-ac0a-a65ea3666bcd'
     },
     {
         id: 'scene-gene-drives',
