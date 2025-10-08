@@ -1,15 +1,82 @@
 import * as THREE from 'three';
 
-// Portfolio data
-const experiences = [
-    { year: '2025', title: 'Building Pont', position: { x: 0, z: 0 }, description: 'Started with a problem I\'d been living: How do you find the right therapist? I\'ve spent most of my life trying to systematize human interaction because otherwise I feel like an alien. So I built a prototype where two GPT agents with pre-defined personalities talked to each other—essentially simulating therapeutic conversations to predict compatibility. It was fun but expensive as hell. So I turned it into something real: combined social simulation principles with recommender systems, built a full-stack Flask app with TypeScript, designed the entire interface from scratch (user flows, matching algorithm visualization, onboarding sequences), and integrated Stripe for booking. Conducted 15+ clinician interviews to refine the matching algorithm and improve accessibility. When therapists said it was too risky to adopt early-stage, I pivoted the core compatibility engine into a friend-matching platform. Same fundamental challenge—predicting human connection—different use case. Currently iterating based on user feedback. What I learned: How to design developer-facing features (API documentation, configuration interfaces), how to balance technical complexity with user simplicity, and that the best research happens when you\'re solving your own problem.' },
-    { year: '2025', title: 'Learning to design for neurodivergent users', position: { x: 15, z: -5 }, description: 'Started volunteering with Spectrum Socials, helping run friendship-building sessions for autistic kids (ages 5-16). I\'m essentially event coordinator and conversation moderator—designing social experiences that help kids learn interaction patterns in a safe environment. Loneliness is a massive theme here. Watching real connections form between kids who struggle socially has fundamentally changed how I think about interface design. When you\'re designing for people who interpret the world differently, every micro-interaction matters. Every transition needs to be predictable. Every error message needs to be kind. This experience directly influences how I approach UX: clear feedback loops, reduced cognitive load, multiple pathways to the same outcome. Universal design isn\'t just accessible design—it\'s better design for everyone.' },
-    { year: '2024', title: 'nGENEsis Diagnostics', position: { x: 30, z: 0 }, description: 'Applied solo to Y Combinator with a gene network psychiatry idea—made it to the top 10%. The concept: use whole-genome sequencing to analyze complete gene networks for psychiatric treatment optimization. Did hours of user interviews with clinicians and people at gene-testing companies. Here\'s what killed it: The tests people actually need are expensive and hard to access. The "affordable" ones subsidize costs by selling user data. The only model that penciled out was to either sell patient data or charge obscene fees. The business model was fundamentally about hiking up the price of data rather than helping people. Hard pass. I\'m parking it until whole-genome sequencing is cheap and boring. Kept my ethics, lost the pitch. Worth it. What I learned: Sometimes the most important design decision is knowing when not to build something. Also learned how to conduct systematic user research, synthesize conflicting stakeholder needs, and present complex technical concepts to non-technical decision-makers.' },
-    { year: '2024', title: 'Computational gene drives', position: { x: 45, z: -5 }, description: 'Part of my MRes at Imperial. Built a computational pipeline from scratch to extract and quantify guide RNA sequences from different gene drives, then fed that into a multivariate model to see if gRNA sequence scores influenced inheritance rates. Also quantified promoter expression levels using RNAseq data to understand how timing affects gene drive success. Used Bash, R, and Python. Collaborated with my supervisor Seb via GitHub—learned proper version control, code review processes, and how to write documentation that future-me wouldn\'t hate. What I learned: How to build data analysis workflows, how to debug complex multi-step pipelines, and that good documentation is a love letter to your future self. Also: scientists desperately need better tools. Every analysis required duct-taping together three different scripts in different languages. There\'s so much room for better developer experience in research computing.' },
-    { year: '2022', title: 'India medication adherence project', position: { x: 60, z: 0 }, description: 'Worked on a public health project analyzing population census data to understand what factors influence medication adherence in India. Helped with data analysis in R and contributed to the published paper. This was my first experience working with messy, real-world data at scale. Census data is gloriously chaotic—missing fields, inconsistent formatting, data entry errors. Had to design cleaning pipelines that were robust enough to handle edge cases but flexible enough to preserve legitimate outliers. What I learned: How to work with large datasets, how to communicate statistical findings to policymakers, and that the most important question in data analysis is "what decision will this inform?"' },
-    { year: '2021', title: 'Entheon Biomedical', position: { x: 75, z: -5 }, description: 'First time working for a startup. Absolutely loved it. Had to wear many different hats: helped design pitch decks with the design team, took meeting minutes, did market research. But my main task was to refine the product after a merger—a gene test kit for dosing psychedelics in psychedelic-assisted therapy. I constructed a list of all relevant genes to be tested, their level of relevance, and which drugs they affected. Conducted an in-depth literature review, presented findings to the CEOs of both companies. Delighted that my research resulted in a modification of the gene test kit. What I learned: How to synthesize complex scientific literature into actionable product decisions, how to communicate with stakeholders who have different priorities (science vs. business vs. regulatory), and that startups move fast—you need to be comfortable making decisions with incomplete information.' },
-    { year: '2020-2021', title: 'Autism Research Centre', position: { x: 90, z: 0 }, description: 'Worked with Varun Warrier and Armandina Almanza-Gutierrez to analyze data in R, investigating differences in masking behavior between autistic girls and autistic boys. This was my first real experience with behavioral data analysis and working in a research environment. What I learned: How to work independently on long-term projects, how to ask good questions when stuck, and that understanding human behavior requires both quantitative rigor and qualitative empathy. You can\'t reduce people to data points.' },
-    { year: '2019', title: 'Mind-controlled video game with Arduino', position: { x: 105, z: -5 }, description: 'Built (or attempted to build) a mind-controlled video game using EEG probes and Arduino. Honestly can\'t remember if we got it fully working, but it made me deeply skeptical of consumer EEG devices. If I needed to focus that hard to get a signal, it\'s not really "passive brain monitoring," is it? Made me realize that a lot of consumer neurotech is selling the aesthetic of science rather than actual functionality. EEG needs way more sensitivity before it\'s useful outside controlled lab settings. What I learned: How to prototype with hardware, how to debug sensor data, and the importance of honest evaluation—sometimes the most valuable outcome is learning what doesn\'t work.' }
+// Portfolio data - Design Projects
+const projects = [
+    {
+        title: 'Pont B2B - AI-Powered Therapist Matching Platform',
+        year: '2025',
+        position: { x: 0, z: 0 },
+        role: 'Product Designer & Developer',
+        problem: 'How do people find therapists they\'ll actually click with? Current solutions rely on filters, not compatibility.',
+        process: [
+            { phase: 'Research', description: 'Conducted 15+ clinician interviews to understand matching needs and accessibility barriers' },
+            { phase: 'Ideation', description: 'Prototyped GPT-based conversation simulation to predict therapeutic compatibility' },
+            { phase: 'Design', description: 'Created user flows, matching algorithm visualization, and onboarding sequences from scratch' },
+            { phase: 'Testing', description: 'Iterated based on therapist feedback; pivoted when adoption risk was too high' }
+        ],
+        finalDesign: [
+            'Dashboard with clinician-focused interface',
+            'AI-powered compatibility matching system',
+            'User profile setup with therapeutic preference mapping',
+            'Results display with match reasoning visualization',
+            'Stripe integration for seamless booking'
+        ],
+        tech: 'TypeScript, CSS, HTML, Flask, GPT-4 integration, Stripe API',
+        outcomes: [
+            'Built full-stack prototype with recommender system',
+            'Learned to design developer-facing features (API docs, config interfaces)',
+            'Pivoted core compatibility engine to friend-matching platform when therapists found it too risky'
+        ]
+    },
+    {
+        title: 'Pont D2C - Friend Matching Platform',
+        year: '2025',
+        position: { x: 30, z: 0 },
+        role: 'Product Designer & Developer',
+        problem: 'Same fundamental challenge as B2B version: predicting human connection. How do you help people find friends they\'ll genuinely connect with?',
+        process: [
+            { phase: 'Research', description: 'Adapted insights from therapist matching to friendship compatibility' },
+            { phase: 'Ideation', description: 'Repurposed compatibility engine for social connection instead of therapeutic fit' },
+            { phase: 'Design', description: 'Simplified interface for consumer use; reduced cognitive load while maintaining depth' },
+            { phase: 'Testing', description: 'Currently iterating based on user feedback and usage patterns' }
+        ],
+        finalDesign: [
+            'Consumer-friendly onboarding flow',
+            'Compatibility scoring based on social simulation principles',
+            'Match explanation interface',
+            'Profile creation optimized for neurodivergent users'
+        ],
+        tech: 'TypeScript, CSS, HTML, Flask, GPT-4 integration',
+        outcomes: [
+            'Successfully pivoted B2B product to D2C market',
+            'Learned to balance technical complexity with user simplicity',
+            'Applied universal design principles from Spectrum Socials volunteer work'
+        ]
+    },
+    {
+        title: 'Entheon Biomedical - Psychedelic Dosing Gene Test',
+        year: '2021',
+        position: { x: 60, z: 0 },
+        role: 'Product Research & Design Contributor',
+        problem: 'How do we personalize psychedelic-assisted therapy dosing based on genetic profiles? Post-merger product needed refinement.',
+        process: [
+            { phase: 'Research', description: 'In-depth literature review of pharmacogenomics and psychedelic metabolism' },
+            { phase: 'Ideation', description: 'Constructed comprehensive list of relevant genes, relevance levels, and drug interactions' },
+            { phase: 'Design', description: 'Collaborated with design team on pitch decks and product positioning' },
+            { phase: 'Testing', description: 'Presented findings to CEOs; research directly modified gene test kit design' }
+        ],
+        finalDesign: [
+            'Refined gene panel for psychedelic metabolism',
+            'Clear documentation of gene-drug interactions',
+            'Pitch materials communicating complex science to investors'
+        ],
+        tech: 'Literature synthesis, scientific communication, stakeholder presentation',
+        outcomes: [
+            'Research directly resulted in modification of gene test kit',
+            'Learned to synthesize complex scientific literature into product decisions',
+            'Gained experience balancing science, business, and regulatory priorities in startup environment'
+        ]
+    }
 ];
 
 // Scene setup
@@ -98,12 +165,12 @@ const buildings = [];
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-experiences.forEach((exp, index) => {
+projects.forEach((project, index) => {
     const buildingGroup = new THREE.Group();
 
     // CSG-style geometric shapes with clean, minimal colors
     let buildingMesh;
-    const colors = [0x4A90E2, 0x50C878, 0xF5A623, 0xE94B3C, 0x9013FE, 0x00D084, 0xFF6B6B, 0x4ECDC4];
+    const colors = [0x4A90E2, 0x50C878, 0xF5A623];
     const color = colors[index % colors.length];
 
     // Material with clean, solid look
@@ -114,30 +181,20 @@ experiences.forEach((exp, index) => {
         flatShading: true // CSG-style flat shading
     });
 
-    if (index % 5 === 0) {
-        // Sphere
+    if (index === 0) {
+        // Sphere for Pont B2B
         const geometry = new THREE.SphereGeometry(2, 16, 16);
         buildingMesh = new THREE.Mesh(geometry, material);
         buildingMesh.position.y = 2.5;
-    } else if (index % 5 === 1) {
-        // Torus
+    } else if (index === 1) {
+        // Torus for Pont D2C
         const geometry = new THREE.TorusGeometry(1.5, 0.6, 16, 32);
         buildingMesh = new THREE.Mesh(geometry, material);
         buildingMesh.position.y = 2;
         buildingMesh.rotation.x = Math.PI / 2;
-    } else if (index % 5 === 2) {
-        // Octahedron
-        const geometry = new THREE.OctahedronGeometry(2);
-        buildingMesh = new THREE.Mesh(geometry, material);
-        buildingMesh.position.y = 2.5;
-    } else if (index % 5 === 3) {
-        // Tetrahedron
-        const geometry = new THREE.TetrahedronGeometry(2.5);
-        buildingMesh = new THREE.Mesh(geometry, material);
-        buildingMesh.position.y = 2.5;
     } else {
-        // Dodecahedron
-        const geometry = new THREE.DodecahedronGeometry(2);
+        // Octahedron for Entheon
+        const geometry = new THREE.OctahedronGeometry(2);
         buildingMesh = new THREE.Mesh(geometry, material);
         buildingMesh.position.y = 2.5;
     }
@@ -146,8 +203,8 @@ experiences.forEach((exp, index) => {
     buildingMesh.receiveShadow = true;
     buildingGroup.add(buildingMesh);
 
-    buildingGroup.position.set(exp.position.x, 0, exp.position.z);
-    buildingGroup.userData = { experience: exp, index };
+    buildingGroup.position.set(project.position.x, 0, project.position.z);
+    buildingGroup.userData = { project: project, index };
     scene.add(buildingGroup);
     buildings.push(buildingGroup);
 });
@@ -168,8 +225,8 @@ buildings.forEach((building) => {
     const label = document.createElement('div');
     label.className = 'building-label';
     label.innerHTML = `
-        <span class="label-year">${building.userData.experience.year}</span>
-        <span class="label-title">${building.userData.experience.title}</span>
+        <span class="label-year">${building.userData.project.year}</span>
+        <span class="label-title">${building.userData.project.title}</span>
     `;
     labelsContainer.appendChild(label);
     buildingLabels.push({ element: label, building });
@@ -213,15 +270,47 @@ document.addEventListener('click', (event) => {
 
     if (intersects.length > 0) {
         let parent = intersects[0].object;
-        while (parent.parent && !parent.userData.experience) {
+        while (parent.parent && !parent.userData.project) {
             parent = parent.parent;
         }
 
-        if (parent.userData.experience) {
-            const exp = parent.userData.experience;
-            experienceTitle.textContent = exp.title;
-            experienceYear.textContent = exp.year;
-            experienceDescription.textContent = exp.description;
+        if (parent.userData.project) {
+            const project = parent.userData.project;
+
+            // Build portfolio-style content
+            let processHTML = project.process.map(p =>
+                `<div class="process-step"><strong>${p.phase}:</strong> ${p.description}</div>`
+            ).join('');
+
+            let designHTML = project.finalDesign.map(item =>
+                `<li>${item}</li>`
+            ).join('');
+
+            let outcomesHTML = project.outcomes.map(item =>
+                `<li>${item}</li>`
+            ).join('');
+
+            experienceTitle.innerHTML = `
+                <h2>${project.title}</h2>
+                <p class="project-role">${project.role} (${project.year})</p>
+
+                <h3>THE PROBLEM</h3>
+                <p>${project.problem}</p>
+
+                <h3>THE PROCESS</h3>
+                ${processHTML}
+
+                <h3>FINAL DESIGN</h3>
+                <ul>${designHTML}</ul>
+
+                <h3>TECHNICAL IMPLEMENTATION</h3>
+                <p><strong>Built with:</strong> ${project.tech}</p>
+
+                <h3>OUTCOMES</h3>
+                <ul>${outcomesHTML}</ul>
+            `;
+            experienceYear.textContent = '';
+            experienceDescription.textContent = '';
             infoPanel.classList.add('visible');
         }
     }
