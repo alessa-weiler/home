@@ -3,375 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <link rel="stylesheet" href="style.css">
+    <title>About | Alessa Weiler</title>
+    <link rel="stylesheet" href="about-style.css">
 </head>
 <body>
-    <!-- Header (reusable from previous pages) -->
+    <!-- Minimalist Header -->
     <header>
         <div class="logo">
-            <h1>About Me</h1>
+            <a href="index.html">Alessa Weiler</a>
         </div>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
+            <a href="index.html">Work</a>
+            <a href="about.html" class="active">About</a>
         </nav>
     </header>
 
     <!-- Main content of the About Page -->
     <main>
-        <section class="about-intro">
-            <h2>Designer who codes, scientist who builds</h2>
-            <p>I design and build tools that help people understand each other better. My background in neuroscience and psychology taught me how humans work. My startup experience taught me how to ship products. And my comedy hobby taught me that if you can't explain something simply, you don't understand it yet.</p>
-            <p>Currently finishing my MSc in Psychology at Birkbeck while building Pont, an AI-powered platform that helps people find therapists they'll actually click with. Before that: gene drives at Imperial, brain organoids at MRC-LMB, and a failed-but-educational gene testing startup that taught me the difference between cool science and useful products.</p>
+        <section class="hero">
+            <h1>Designer who codes, scientist who builds</h1>
+            <p class="lead">I design and build tools that help people understand each other better. My background in neuroscience and psychology taught me how humans work. My startup experience taught me how to ship products. And my comedy hobby taught me that if you can't explain something simply, you don't understand it yet.</p>
         </section>
 
-        <section class="about-section">
-            <h2>How I got here</h2>
-            
-            <div class="year-project">
-                <h3>2025 - Building Pont: From therapist matching to friendship compatibility</h3>
-                <p>Started with a problem I'd been living: How do you find the right therapist? I've spent most of my life trying to systematize human interaction because otherwise I feel like an alien. So I built a prototype where two GPT agents with pre-defined personalities talked to each other—essentially simulating therapeutic conversations to predict compatibility.</p>
-                <p>It was fun but expensive as hell. So I turned it into something real: combined social simulation principles with recommender systems, built a full-stack Flask app with TypeScript, designed the entire interface from scratch (user flows, matching algorithm visualization, onboarding sequences), and integrated Stripe for booking. Conducted 15+ clinician interviews to refine the matching algorithm and improve accessibility.</p>
-                <p>When therapists said it was too risky to adopt early-stage, I pivoted the core compatibility engine into a friend-matching platform. Same fundamental challenge—predicting human connection—different use case. Currently iterating based on user feedback.</p>
-                <p><strong>What I learned:</strong> How to design developer-facing features (API documentation, configuration interfaces), how to balance technical complexity with user simplicity, and that the best research happens when you're solving your own problem.</p>
+        <section class="timeline">
+            <div class="timeline-item">
+                <div class="year">2025</div>
+                <div class="content">
+                    <h3>Building Pont</h3>
+                    <p>From therapist matching to friendship compatibility. Started with a problem I'd been living: How do you find the right therapist? Built a prototype where two GPT agents simulated therapeutic conversations to predict compatibility. Turned it into something real: combined social simulation principles with recommender systems, built a full-stack Flask app with TypeScript, designed the entire interface from scratch.</p>
+                    <p>When therapists said it was too risky to adopt early-stage, I pivoted the core compatibility engine into a friend-matching platform. Same fundamental challenge—predicting human connection—different use case.</p>
+                </div>
             </div>
 
-            <div class="year-project">
-                <h3>2025 - Learning to design for neurodivergent users</h3>
-                <p>Started volunteering with Spectrum Socials, helping run friendship-building sessions for autistic kids (ages 5-16). I'm essentially event coordinator and conversation moderator—designing social experiences that help kids learn interaction patterns in a safe environment.</p>
-                <p>Loneliness is a massive theme here. Watching real connections form between kids who struggle socially has fundamentally changed how I think about interface design. When you're designing for people who interpret the world differently, every micro-interaction matters. Every transition needs to be predictable. Every error message needs to be kind.</p>
-                <p>This experience directly influences how I approach UX: clear feedback loops, reduced cognitive load, multiple pathways to the same outcome. Universal design isn't just accessible design—it's better design for everyone.</p>
+            <div class="timeline-item">
+                <div class="year">2024</div>
+                <div class="content">
+                    <h3>nGENEsis Diagnostics</h3>
+                    <p>Applied solo to Y Combinator with a gene network psychiatry idea—made it to the top 10%. Here's what killed it: The only business model that penciled out was to either sell patient data or charge obscene fees. Hard pass. I'm parking it until whole-genome sequencing is cheap and boring. Kept my ethics, lost the pitch. Worth it.</p>
+                </div>
             </div>
 
-            <div class="year-project">
-                <h3>2024 - nGENEsis Diagnostics: When the business model breaks the ethics</h3>
-                <p>Applied solo to Y Combinator with a gene network psychiatry idea—made it to the top 10%. The concept: use whole-genome sequencing to analyze complete gene networks for psychiatric treatment optimization. Did hours of user interviews with clinicians and people at gene-testing companies.</p>
-                <p>Here's what killed it: The tests people actually need are expensive and hard to access. The "affordable" ones subsidize costs by selling user data. The only model that penciled out was to either sell patient data or charge obscene fees. The business model was fundamentally about hiking up the price of data rather than helping people.</p>
-                <p><strong>Hard pass.</strong> I'm parking it until whole-genome sequencing is cheap and boring. Kept my ethics, lost the pitch. Worth it.</p>
-                <p><strong>What I learned:</strong> Sometimes the most important design decision is knowing when <em>not</em> to build something. Also learned how to conduct systematic user research, synthesize conflicting stakeholder needs, and present complex technical concepts to non-technical decision-makers.</p>
+            <div class="timeline-item">
+                <div class="year">2024</div>
+                <div class="content">
+                    <h3>Computational Gene Drives</h3>
+                    <p>Part of my MRes at Imperial. Built a computational pipeline from scratch to extract and quantify guide RNA sequences from different gene drives. Used Bash, R, and Python. Learned proper version control, code review processes, and that good documentation is a love letter to your future self.</p>
+                </div>
             </div>
 
-            <div class="year-project">
-                <h3>2024 - Computational gene drives: Building analysis pipelines that actually work</h3>
-                <p>Part of my MRes at Imperial. Built a computational pipeline from scratch to extract and quantify guide RNA sequences from different gene drives, then fed that into a multivariate model to see if gRNA sequence scores influenced inheritance rates.</p>
-                <p>Also quantified promoter expression levels using RNAseq data to understand how timing affects gene drive success. Used Bash, R, and Python. Collaborated with my supervisor Seb via GitHub—learned proper version control, code review processes, and how to write documentation that future-me wouldn't hate.</p>
-                <p><strong>What I learned:</strong> How to build data analysis workflows, how to debug complex multi-step pipelines, and that good documentation is a love letter to your future self. Also: scientists desperately need better tools. Every analysis required duct-taping together three different scripts in different languages. There's so much room for better developer experience in research computing.</p>
+            <div class="timeline-item">
+                <div class="year">2021</div>
+                <div class="content">
+                    <h3>Entheon Biomedical</h3>
+                    <p>First time working for a startup. Absolutely loved it. Refined the product after a merger—a gene test kit for dosing psychedelics in psychedelic-assisted therapy. Conducted in-depth literature review, presented findings to the CEOs, and my research resulted in modifications to the gene test kit.</p>
+                </div>
             </div>
 
-            <div class="year-project">
-                <h3>2022 - First public health project: Designing for India's medication adherence crisis</h3>
-                <p>Worked on a public health project analyzing population census data to understand what factors influence medication adherence in India. Helped with data analysis in R and contributed to the published paper (<a href="https://pubmed.ncbi.nlm.nih.gov/37900158/">see here</a>).</p>
-                <p>This was my first experience working with messy, real-world data at scale. Census data is gloriously chaotic—missing fields, inconsistent formatting, data entry errors. Had to design cleaning pipelines that were robust enough to handle edge cases but flexible enough to preserve legitimate outliers.</p>
-                <p><strong>What I learned:</strong> How to work with large datasets, how to communicate statistical findings to policymakers, and that the most important question in data analysis is "what decision will this inform?"</p>
-            </div>
-
-            <div class="year-project">
-                <h3>2021 - Entheon Biomedical: Literature review + learning design collaboration</h3>
-                <p>First time working for a startup. Absolutely loved it. Had to wear many different hats. My main task was to refine the product after a merger—a gene test kit for dosing psychedelics in psychedelic-assisted therapy. Conducted an in-depth literature review, presented findings to the CEOs of both companies, and my research resulted in modifications to the gene test kit.</p>
-                <p>Also worked alongside the design team on pitch deck design. My job: translate dense scientific concepts into clear visuals for investor presentations. Learned how to simplify gene networks into digestible diagrams, turn research data into scannable charts, and structure slides around single key messages. This was my first experience collaborating with a professional designer—I'd provide scientific content and rough concepts, designer would create the visual, we'd iterate for accuracy and clarity.</p>
-                <p><strong>What I learned:</strong> How to synthesize complex scientific literature into actionable product decisions, how to communicate with stakeholders who have different priorities (science vs. business vs. regulatory), and that startups move fast—you need to be comfortable making decisions with incomplete information. Also learned that design is fundamentally about translation: making complex information accessible isn't dumbing it down, it's respecting your audience's time and cognitive load.</p>
-            </div>
-
-            <div class="year-project">
-                <h3>2020-2021 - Autism Research Centre: Only student researcher for 8 months</h3>
-                <p>Worked with Varun Warrier and Armandina Almanza-Gutierrez to analyze data in R, investigating differences in masking behavior between autistic girls and autistic boys. This was my first real experience with behavioral data analysis and working in a research environment.</p>
-                <p><strong>What I learned:</strong> How to work independently on long-term projects, how to ask good questions when stuck, and that understanding human behavior requires both quantitative rigor and qualitative empathy. You can't reduce people to data points.</p>
-            </div>
-
-            <div class="year-project">
-                <h3>2019 - Mind-controlled video game with Arduino: When EEG headsets lie</h3>
-                <p>Built (or attempted to build) a mind-controlled video game using EEG probes and Arduino. Honestly can't remember if we got it fully working, but it made me deeply skeptical of consumer EEG devices.</p>
-                <p>If I needed to focus <em>that hard</em> to get a signal, it's not really "passive brain monitoring," is it? Made me realize that a lot of consumer neurotech is selling the <em>aesthetic</em> of science rather than actual functionality. EEG needs way more sensitivity before it's useful outside controlled lab settings.</p>
-                <p><strong>What I learned:</strong> How to prototype with hardware, how to debug sensor data, and the importance of honest evaluation—sometimes the most valuable outcome is learning what <em>doesn't</em> work.</p>
+            <div class="timeline-item">
+                <div class="year">2018</div>
+                <div class="content">
+                    <h3>Ticketmaster Internship</h3>
+                    <p>Somehow convinced Ticketmaster to let a 15-year-old intern with their software and design teams. Designed and built my version of an update to their mobile app, then presented it to the teams. This was the first time I realized you could combine design, code, and understanding people into an actual career.</p>
+                </div>
             </div>
         </section>
-        <div class="year-project">
-            <h3>2018 - First real design job: Ticketmaster internship at 15</h3>
-            <p>Somehow convinced Ticketmaster to let a 15-year-old intern with their software and design teams for the summer. Was tasked with designing and building my version of an update to their mobile app, then presenting it to the teams.</p>
-            <p>Did user research (interviewed everyone I knew about ticket-buying frustrations), designed a prototype (simplified checkout, improved event discovery, better seat visualization), built it with HTML/CSS/JavaScript, and presented to a room of professional designers and engineers. Terrifying. Also exhilarating.</p>
-            <p><strong>What I learned:</strong> How to present design rationale, how to take critique without taking it personally, and that design decisions need to balance user needs with business constraints. Also learned that 15-year-old me's aesthetic (gradients everywhere!) was questionable, but the research process was solid.</p>
-            <p>This was the first time I realized you could combine design, code, and understanding people into an actual career. Also the first time I used Figma and understood what a design system was.</p>
-        </div>
 
-        <section class="about-philosophy">
+        <section class="philosophy">
             <h2>How I think about design</h2>
-            <p><strong>Start with the user's actual problem, not the solution you want to build.</strong> I killed nGENEsis because I fell in love with the science instead of the problem. With Pont, I started with "finding the right therapist is impossible" and let that drive every decision.</p>
-            
-            <p><strong>Build things you can actually ship.</strong> My background in biology taught me experimental design. My startup experience taught me that experiments need to end. Prototype fast, test with real users, iterate based on feedback. Don't wait for perfect.</p>
-            
-            <p><strong>Empathy is a skill, not a personality trait.</strong> My work with autistic kids taught me this. Understanding users isn't about "being nice"—it's about structured observation, asking good questions, and recognizing your own assumptions. Research methods matter.</p>
-            
-            <p><strong>Technical constraints are design constraints.</strong> I code my own prototypes because I need to know what's actually possible. When you understand how the backend works, you make smarter frontend decisions. When you understand API design, you build better developer tools.</p>
-            
-            <p><strong>Good design is invisible until it breaks.</strong> The best interfaces feel obvious in retrospect. Getting there requires iteration, user testing, and the humility to realize your first idea probably isn't the right one.</p>
+            <div class="philosophy-grid">
+                <div class="principle">
+                    <p>Start with the user's actual problem, not the solution you want to build.</p>
+                </div>
+                <div class="principle">
+                    <p>Build things you can actually ship. Prototype fast, test with real users, iterate based on feedback.</p>
+                </div>
+                <div class="principle">
+                    <p>Empathy is a skill, not a personality trait. Understanding users requires structured observation and good questions.</p>
+                </div>
+                <div class="principle">
+                    <p>Technical constraints are design constraints. Code your own prototypes to know what's actually possible.</p>
+                </div>
+            </div>
         </section>
 
-        <section class="about-currently">
+        <section class="currently">
             <h2>What I'm up to now</h2>
-            <p>Finishing my MSc in Psychology at Birkbeck (evening classes, graduating 2026), iterating on Pont based on user feedback, volunteering with autistic kids every other weekend, and doing stand-up comedy twice a month. Turns out I'm actually pretty funny.</p>
-            <p>Also raising a Bernese Mountain Dog named Moose who taught me more about behavioral reinforcement than any textbook ever did. Potty training a stubborn puppy while working full-time on a startup is basically a crash course in patience, consistency, and iterative problem-solving.</p>
+            <p>Finishing my MSc in Psychology at Birkbeck (evening classes, graduating 2026), iterating on Pont based on user feedback, volunteering with autistic kids every other weekend, and doing stand-up comedy twice a month.</p>
+            <p>Also raising a Bernese Mountain Dog named Moose who taught me more about behavioral reinforcement than any textbook ever did.</p>
         </section>
 
-        <!-- FEATURED WORK: PONT DEEP DIVE -->
-        <section class="project-full">
-            <div class="project-header">
-                <h2>Pont: AI-Powered Therapist-Client Matching Platform</h2>
-                <p class="project-meta">Product Design & Development • 2024-2025 • <a href="https://pont.world" target="_blank">pont.world</a></p>
-            </div>
-
-            <div class="project-hero">
-                <!-- TODO: Add hero image of Pont interface -->
-                <div class="placeholder-image">[Screenshot: Pont self-serve SaaS dashboard for clinics]</div>
-            </div>
-
-            <div class="project-overview">
-                <div class="overview-section">
-                    <h3>The Problem</h3>
-                    <p>75% of therapy dropouts happen because of poor therapist-client fit, not because therapy doesn't work. Current matching relies on crude filters—location, insurance, specialization—rather than actual compatibility. Finding the right therapist is like dating, but more vulnerable and with higher stakes.</p>
-                    <p>I've been through this myself multiple times. So has everyone I know. The existing solutions don't solve the fundamental problem: predicting whether two people will actually click.</p>
-                </div>
-
-                <div class="overview-section">
-                    <h3>My Role</h3>
-                    <p>Solo founder, product designer, and developer. Responsible for all user research, product strategy, interface design, technical implementation, and go-to-market iteration.</p>
-                </div>
-
-                <div class="overview-section">
-                    <h3>Timeline & Current Status</h3>
-                    <p>March 2024 - Present (ongoing)</p>
-                    <p><strong>Current version:</strong> Self-serve SaaS for clinics. Therapists can sign up directly, add their availability, and use the matching algorithm without enterprise sales cycles or lengthy onboarding. Currently in beta with early adopters.</p>
+        <footer>
+            <div class="contact">
+                <h2>Get in touch</h2>
+                <div class="contact-links">
+                    <a href="mailto:alessa@pont-diagnostics.com">Email</a>
+                    <a href="https://linkedin.com/in/alessaweiler" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/alessa-weiler" target="_blank">GitHub</a>
                 </div>
             </div>
-
-            <div class="project-process">
-                <h3>Research & Discovery</h3>
-                <p><strong>Initial User Interviews (n=15 clinicians, n=12 potential clients)</strong></p>
-                <p>Conducted in-depth interviews with therapists, psychologists, and people seeking therapy. Key insights:</p>
-                <ul>
-                    <li><strong>Clinicians:</strong> Wanted objective compatibility data but needed substantial proof it works before committing. Insurance companies and practices wanted efficacy data, regulatory clarity, and low implementation risk. Chicken-and-egg problem: can't get data without users, can't get users without data.</li>
-                    <li><strong>Clients:</strong> Current process is exhausting—read 20+ profiles, book 3-5 consultations, settle for "good enough" when you're already struggling. Want confidence it won't be a waste of time and money.</li>
-                    <li><strong>Core insight:</strong> Compatibility isn't about shared interests or specializations—it's about communication style, attachment patterns, conversational rhythm. Traditional filters miss this entirely.</li>
-                </ul>
-
-                <div class="placeholder-image">[Image: Interview notes synthesis / key themes]</div>
-                <p class="image-caption">Synthesizing clinician feedback: "Love the concept, but we need proof" was the recurring theme. Risk aversion is high in healthcare.</p>
-
-                <h3>Ideation & Technical Prototype</h3>
-                <p><strong>Phase 1: GPT agent simulation</strong></p>
-                <p>Built a terminal-based prototype where two GPT-3 agents with pre-defined personality profiles (based on Big Five personality traits + attachment styles) had simulated conversations. The idea: analyze conversational dynamics to predict real-world compatibility.</p>
-
-                <div class="placeholder-image">[Screenshot: Terminal showing two GPT agents having a conversation]</div>
-                <p class="image-caption">Early technical prototype. Two AI agents role-playing as therapist and client. Surprisingly effective at capturing "vibe," impossibly expensive to scale.</p>
-
-                <p><strong>What I learned:</strong></p>
-                <ul>
-                    <li>Conversation simulation quality was good enough to validate the concept—you could "feel" whether two personalities would mesh</li>
-                    <li>Cost was prohibitive: $2-5 per match simulation. Completely unscalable.</li>
-                    <li>Needed a hybrid approach: combine personality modeling with conversational analysis, but run calculations locally instead of through expensive API calls</li>
-                </ul>
-
-                <h3>The Pivot Cycle (or: How I Learned About Market Validation)</h3>
-
-                <div class="pivot-story">
-                    <h4>Pivot 1: D2C Friendship Matching (Failed)</h4>
-                    <p><strong>The reasoning:</strong> Therapists won't adopt without proof. Insurance companies want efficacy data. So gather that data in a lower-stakes context first—friendship matching. Same core algorithm (predicting interpersonal compatibility), fewer regulatory barriers, easier adoption.</p>
-
-                    <p><strong>What I built:</strong> Rebuilt the platform for friend-matching. Similar personality assessment, matching dashboard, but framed around finding friends instead of therapists.</p>
-
-                    <div class="placeholder-image">[Screenshot: Friendship matching interface]</div>
-
-                    <p><strong>Why it failed:</strong></p>
-                    <ul>
-                        <li>Didn't do enough user interviews for this pivot—mostly talked to people I know, which introduces massive selection bias</li>
-                        <li>Used <em>Mom Test</em> principles but interviewed the wrong market: people already interested in using software for personal life optimization. That's a specific subset, not general population.</li>
-                        <li>Posted on Reddit for broader feedback. Got absolutely roasted. Turns out most people don't want an algorithm picking their friends—it feels dystopian, not helpful.</li>
-                        <li>Core lesson: B2C is really hard when the product challenges social norms. Also, I hadn't validated that friendship matching had the same compatibility dynamics as therapy matching. Assumed too much.</li>
-                    </ul>
-
-                    <h4>Pivot 2: Self-Serve SaaS (Current)</h4>
-                    <p><strong>The reasoning:</strong> One clinician mentioned during interviews that lowering the barrier to entry might incentivize individual therapists or small practices to try it—even without enterprise validation. The bottleneck wasn't just proving efficacy; it was the friction of enterprise sales, legal review, and integration complexity.</p>
-
-                    <p><strong>What I built:</strong> Self-serve SaaS platform. Therapists can sign up directly, create profiles, set their availability, and start using the matching algorithm immediately. No sales calls, no contracts, no IT department involvement. Subscription-based pricing ($49-99/month depending on volume).</p>
-
-                    <div class="placeholder-image">[Screenshot: Therapist onboarding flow]</div>
-
-                    <p><strong>Current status:</strong> Built, launched, now in marketing/user acquisition phase. Testing different acquisition channels (therapist directories, professional associations, Reddit communities—more carefully this time, content marketing).</p>
-
-                    <p><strong>Key design challenge:</strong> How do you design for two different users (therapists setting up profiles + clients searching for therapists) with competing needs, when both need to be onboarded simultaneously for the platform to have value?</p>
-                </div>
-
-                <h3>Design Evolution</h3>
-
-                <div class="design-iteration">
-                    <h4>Version 1: The "Data Overload" Problem</h4>
-                    <div class="placeholder-image">[Wireframe: Complex dashboard with compatibility scores, personality breakdowns, algorithm explanations]</div>
-                    <p><strong>What I learned:</strong> I was designing for myself—someone who loves understanding how systems work and wants to see all the data. Tested with 5 users. They just wanted recommendations. Feedback: "This feels like homework." Cut 70% of the complexity.</p>
-                </div>
-
-                <div class="design-iteration">
-                    <h4>Version 2: The "Too Simple" Problem</h4>
-                    <div class="placeholder-image">[Wireframe: Swipe-style interface with minimal information]</div>
-                    <p><strong>What I learned:</strong> Overcorrected. Made it too simple—users felt they had no control or understanding of why they were seeing certain matches. Trust issue: "Why should I trust this algorithm?" Need transparency without overwhelming.</p>
-                </div>
-
-                <div class="design-iteration">
-                    <h4>Version 3: Progressive Disclosure (Current Approach)</h4>
-                    <div class="placeholder-image">[High-fidelity mockup: Card-based interface with expandable details]</div>
-                    <p><strong>Final design principle:</strong> Show high-level compatibility score and key dimensions upfront. Users can expand for detailed breakdown if they want. Information is available but not mandatory. Trust is built through optional transparency.</p>
-                </div>
-            </div>
-
-            <div class="project-solution">
-                <h3>Final Design: Self-Serve SaaS Platform</h3>
-
-                <div class="feature-breakdown">
-                    <h4>Therapist Onboarding Flow</h4>
-                    <div class="placeholder-image">[Screenshot: Multi-step therapist signup process]</div>
-                    <p><strong>Design challenge:</strong> Get therapists from "I'm curious" to "usable profile" as quickly as possible. Every extra field risks abandonment.</p>
-                    <p><strong>Design decisions:</strong></p>
-                    <ul>
-                        <li><strong>Minimal initial signup:</strong> Email, password, basic info only. Can complete full profile later. Reduces barrier to "just try it."</li>
-                        <li><strong>Progress indicators:</strong> Clear steps showing "Profile Info → Availability → Personality Assessment → Review." Reduced abandonment from 52% → 23%.</li>
-                        <li><strong>Save progress:</strong> Can exit and return. Huge for busy therapists who get interrupted mid-signup.</li>
-                        <li><strong>Personality assessment tone:</strong> Conversational, not clinical. "How do you typically structure sessions?" vs "Rate your therapeutic approach on a scale of 1-7."</li>
-                        <li><strong>Preview mode:</strong> Show therapists how their profile appears to clients before going live. Catches errors, builds confidence.</li>
-                    </ul>
-                </div>
-
-                <div class="feature-breakdown">
-                    <h4>Client Search Interface</h4>
-                    <div class="placeholder-image">[Screenshot: Client-facing search dashboard]</div>
-                    <p><strong>Design challenge:</strong> Make personality-based matching feel helpful, not creepy. Users need to feel in control.</p>
-                    <p><strong>Design decisions:</strong></p>
-                    <ul>
-                        <li><strong>Hybrid approach:</strong> Still include traditional filters (insurance, location, specialization) alongside compatibility matching. Users can opt out of personality-based matching entirely if they want.</li>
-                        <li><strong>Card-based layout:</strong> Tested against list view—cards won for scannability and emotional appeal. Photos + compatibility score + specialization visible at a glance.</li>
-                        <li><strong>Match explanation:</strong> Each card shows <em>why</em> they're a good match in plain language: "Communication styles align," "Similar approach to goal-setting," "Both value directness." Builds trust in the algorithm.</li>
-                        <li><strong>Action hierarchy:</strong> Primary CTA is "Book consultation" (lower commitment than "Start therapy"). Secondary options: "Save for later," "Learn more about compatibility."</li>
-                    </ul>
-                </div>
-
-                <div class="feature-breakdown">
-                    <h4>Compatibility Breakdown (Expanded View)</h4>
-                    <div class="placeholder-image">[Screenshot: Detailed compatibility analysis with visual breakdown]</div>
-                    <p><strong>Design decisions:</strong></p>
-                    <ul>
-                        <li><strong>Radar chart visualization:</strong> Shows compatibility across 6 dimensions (communication style, emotional approach, structure preference, pacing, values alignment, boundaries). Visual pattern recognition is faster than reading paragraphs.</li>
-                        <li><strong>Plain language explanations:</strong> No jargon. "You both prefer direct communication and getting straight to the point" vs "High concordance on assertiveness dimension."</li>
-                        <li><strong>Honest about potential friction:</strong> "You might need to discuss pacing—you tend to want quick results while they focus on gradual progress." Users appreciated transparency. Builds trust.</li>
-                        <li><strong>Sample questions:</strong> "Here are some questions you might ask in your consultation based on your compatibility profile." Reduces anxiety about first session.</li>
-                    </ul>
-                </div>
-
-                <div class="feature-breakdown">
-                    <h4>Therapist Dashboard & Availability Management</h4>
-                    <div class="placeholder-image">[Screenshot: Therapist backend showing calendar, client requests, analytics]</div>
-                    <p><strong>Design challenge:</strong> Therapists are busy. Every minute spent managing software is a minute not spent with clients.</p>
-                    <p><strong>Design decisions:</strong></p>
-                    <ul>
-                        <li><strong>Calendar integration:</strong> Syncs with Google Calendar/Outlook. Therapists set availability once, system handles the rest.</li>
-                        <li><strong>Client request workflow:</strong> Notifications for new consultation requests. One-click approve/decline. Can add note if declining ("My waitlist is full, but Dr. Smith has similar availability").</li>
-                        <li><strong>Basic analytics:</strong> How many profile views, consultation requests, compatibility score distribution for their clients. Helps therapists see value.</li>
-                        <li><strong>Stripe integration:</strong> Automatic payouts. Therapists don't handle payment processing manually.</li>
-                    </ul>
-                </div>
-
-                <div class="feature-breakdown">
-                    <h4>Booking & Payment Flow</h4>
-                    <div class="placeholder-image">[Screenshot: Calendar selection + Stripe checkout]</div>
-                    <p><strong>Design decisions:</strong></p>
-                    <ul>
-                        <li><strong>Consultation-first model:</strong> Book 15-30 min consultation (often free or low-cost) before committing to ongoing sessions. Reduces risk for clients.</li>
-                        <li><strong>Visual calendar:</strong> See available time slots at a glance. Way better conversion than dropdown menus.</li>
-                        <li><strong>Stripe integration:</strong> Considered PayPal, but Stripe had better developer documentation and cleaner UI. Also handles subscription billing for ongoing therapy.</li>
-                        <li><strong>Easy cancellation:</strong> Can reschedule up to 24 hours before. Trust signal—users more likely to book if they know they can change plans.</li>
-                        <li><strong>Confirmation email:</strong> Includes therapist bio, office location/Zoom link, prep tips based on compatibility profile.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="project-technical">
-                <h3>Technical Implementation</h3>
-                <p><strong>Stack:</strong> Flask (Python backend), TypeScript + HTML + CSS (frontend), PostgreSQL (database), DigitalOcean (hosting), Stripe (payments), GPT-4 API (personality analysis during initial prototype—now mostly local calculations)</p>
-
-                <p><strong>Architecture decisions:</strong></p>
-                <ul>
-                    <li><strong>Why Flask over Django:</strong> Needed flexibility for custom matching algorithm. Django's ORM and structure felt constraining. Flask's minimalism = more control over algorithm implementation.</li>
-                    <li><strong>Frontend: Vanilla TypeScript instead of React:</strong> Wanted to understand fundamentals first. Also, faster initial load times for relatively simple interactions. May migrate to React if complexity grows.</li>
-                    <li><strong>Algorithm design:</strong> Hybrid approach combining collaborative filtering (like Netflix recommendations) with personality model scoring. Custom-built because existing libraries don't handle multi-dimensional interpersonal compatibility well.</li>
-                    <li><strong>Database schema:</strong> Separate tables for therapist profiles, client profiles, personality assessments, availability slots, bookings, compatibility calculations. Normalized design to avoid data duplication.</li>
-                    <li><strong>Data security:</strong> All personality data encrypted at rest. GDPR-compliant data deletion. No selling of user data (learned that lesson from nGENEsis). Session tokens expire after 24 hours.</li>
-                </ul>
-
-                <div class="placeholder-image">[Diagram: System architecture showing data flow from user input → personality analysis → matching algorithm → results display]</div>
-
-                <p><strong>Performance considerations:</strong></p>
-                <ul>
-                    <li>Matching calculations are computationally expensive (comparing every client with every therapist across 6 dimensions). Implemented caching strategy: recalculate only when profiles change, not on every search.</li>
-                    <li>Lazy loading for images—don't load all therapist photos upfront, just the ones in viewport.</li>
-                    <li>Debounced search inputs to reduce unnecessary API calls.</li>
-                </ul>
-            </div>
-
-            <div class="project-outcomes">
-                <h3>Outcomes & Current Status</h3>
-
-                <p><strong>Where things stand:</strong> Fully functional self-serve SaaS platform launched. Currently in user acquisition phase—testing different marketing channels, refining messaging, onboarding early-adopter therapists.</p>
-
-                <p><strong>Early metrics (n=8 therapist users, n=24 client searches):</strong></p>
-                <ul>
-                    <li>Therapist onboarding completion rate: 77% (vs ~50% industry average for multi-step professional signups)</li>
-                    <li>Client personality assessment completion: 81% (vs ~60% industry average for personality tests)</li>
-                    <li>Average time to first match: 4 minutes (vs hours/days with traditional Psychology Today search)</li>
-                    <li>User-reported match quality: 7.4/10 (early sample, grain of salt)</li>
-                </ul>
-
-                <p><strong>Current challenges:</strong></p>
-                <ul>
-                    <li><strong>Cold-start problem:</strong> Need therapists to attract clients, need clients to attract therapists. Currently focusing on therapist acquisition first (supply-side).</li>
-                    <li><strong>Marketing on a budget:</strong> Solo founder with no marketing experience. Learning SEO, content marketing, community building in real-time.</li>
-                    <li><strong>Trust building:</strong> Convincing both therapists and clients that an algorithm can help with something as personal as therapy relationships. Working on case studies and testimonials.</li>
-                </ul>
-
-                <h3>What I Learned About Design</h3>
-
-                <p><strong>User research prevents wasted work, but you need the RIGHT users.</strong> My friendship matching pivot failed because I interviewed the wrong people. Selection bias is real. The <em>Mom Test</em> helps, but only if you're talking to your actual target market.</p>
-
-                <p><strong>Progressive disclosure is essential for complex systems.</strong> Show the minimum information needed to make a decision. Reveal complexity on demand. Every additional field is a question you're asking users to answer—respect their attention and cognitive load.</p>
-
-                <p><strong>Two-sided marketplaces are really hard to design for.</strong> Therapists and clients have different needs, different levels of tech literacy, different incentives. Had to build two essentially separate experiences that connect in the backend.</p>
-
-                <p><strong>Trust is the hardest design problem.</strong> It's not about visual polish—it's about transparency, control, and proving value quickly. Nobody trusts a black-box algorithm with something as important as their mental health.</p>
-
-                <p><strong>Edge cases will break your design.</strong> "What if someone doesn't answer Question 7?" "What if two people have 100% compatibility but one is full?" "What if a therapist wants to reject a client without hurting their feelings?" Design for the weird scenarios early, not when they inevitably happen in production.</p>
-
-                <p><strong>B2C is harder than B2B for challenging social norms.</strong> People have deep-seated beliefs about how relationships "should" work. An algorithm picking friends felt dystopian. Same algorithm picking therapists (where choice paralysis is already a problem) feels helpful. Product-market fit is about psychology, not just utility.</p>
-
-                <h3>What I Learned About Developer Experience</h3>
-
-                <p><strong>Documentation is interface design.</strong> Your README, your API docs, your error messages—these are all interfaces. If developers (or in this case, therapists using your dashboard) can't figure out how to use your tool, the underlying code quality doesn't matter.</p>
-
-                <p><strong>Error messages are UX.</strong> "Error 400: Bad Request" is useless. "We need a valid email address to send your confirmation" is helpful. Spent surprising amount of time on error message copy.</p>
-
-                <p><strong>Configuration UI matters.</strong> Even technical users don't want to edit JSON files if they don't have to. Built a visual availability editor instead of asking therapists to input time slots as JSON. Obvious in retrospect, but had to learn it.</p>
-
-                <p><strong>Stripe's developer experience is excellent.</strong> Their docs, their API design, their error messages—everything is thoughtful. Learned a lot about good developer experience just by using their product. Aspiring to that level of polish.</p>
-
-                <h3>Next Steps</h3>
-                <ul>
-                    <li>Focus on therapist acquisition—need supply before demand makes sense</li>
-                    <li>Build case studies and testimonials to reduce trust barrier</li>
-                    <li>Iterate on onboarding based on where users drop off</li>
-                    <li>Consider adding practice/group therapy features for enterprise accounts (different sales motion, but potentially easier to close)</li>
-                    <li>Keep refining the matching algorithm based on real-world feedback</li>
-                </ul>
-
-                <p><a href="https://pont.world" target="_blank">View live site →</a> | <a href="#">Technical deep-dive (coming soon) →</a></p>
-            </div>
-        </section>
+        </footer>
     </main>
 
 </body>
