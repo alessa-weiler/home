@@ -3,49 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Alessa Weiler</title>
+    <title>Alessa Weiler</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- UI Overlay -->
-    <div class="game-ui">
-        <div class="header-overlay">
-            <div class="logo">
-                <h1>Alessa's Journey</h1>
-            </div>
-            <nav>
-                <a href="./about.html">About</a>
-            </nav>
+    <header>
+        <div class="logo">
+            <a href="index.html">Alessa Weiler</a>
         </div>
-        <div class="intro-overlay">
-            <h2>Hey there :)</h2>
-            <p>I'm Alessa. I build things, break them, and occasionally end up on stage doing stand-up. Walk through my journey and click on buildings to explore my favourite projects.</p>
-            <div class="social-icons">
-                <a href="https://github.com/alessa-weiler" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/alessaweiler" target="_blank">LinkedIn</a>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-intro">
+            <h1>Designer who codes, scientist who builds systems.</h1>
+            <p>Select a project to explore.</p>
+        </section>
+
+        <section class="projects-grid">
+            <div class="project-card" data-link="https://pont.world">
+                <div class="scene-container" id="scene-pont"></div>
+                <div class="card-content">
+                    <span class="year-badge">2025</span>
+                    <h2>Pont</h2>
+                    <p>Compatibility engine for social and therapeutic matching. Full-stack Flask + TypeScript app.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-link="about.html">
+                <div class="scene-container" id="scene-ngenesis"></div>
+                <div class="card-content">
+                    <span class="year-badge">2024</span>
+                    <h2>nGENEsis Diagnostics</h2>
+                    <p>Gene network psychiatry concept. YC top 10%. Lesson in scientific timing and feasibility.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-link="about.html">
+                <div class="scene-container" id="scene-gene-drives"></div>
+                <div class="card-content">
+                    <span class="year-badge">2024</span>
+                    <h2>Computational Gene Drives</h2>
+                    <p>Pipeline for guide RNA quantification. Bash, R, Python. Documentation is design.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="contact">
                 <a href="mailto:alessa@pont-diagnostics.com">Email</a>
+                <a href="https://linkedin.com/in/alessaweiler" target="_blank">LinkedIn</a>
+                <a href="https://github.com/alessa-weiler" target="_blank">GitHub</a>
             </div>
-        </div>
+        </footer>
+    </main>
 
-        <div id="instructions">
-            <p>Use <strong>W A S D</strong> to move | <strong>Mouse Wheel</strong> to zoom | <strong>Shift</strong> to run | <strong>Click</strong> buildings to interact</p>
-        </div>
-
-        <div class="progress-container">
-            <div id="progress-bar"></div>
-        </div>
-
-        <div id="info-panel">
-            <button id="close-btn">&times;</button>
-            <h3 id="experience-title"></h3>
-            <p id="experience-year"></p>
-            <p id="experience-description"></p>
-        </div>
-
-        <div id="labels-container"></div>
-    </div>
-
-    <script type="module" src="./game.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+            }
+        }
+    </script>
+    <script type="module" src="./index.js"></script>
 </body>
 </html>

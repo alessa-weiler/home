@@ -5,20 +5,20 @@
 }
 
 :root {
-    --black: #000000;
-    --white: #ffffff;
-    --gray-100: #f5f5f5;
-    --gray-200: #e5e5e5;
-    --gray-400: #999999;
-    --gray-600: #666666;
+    --bg: #F8F9FA;
+    --text: #111827;
+    --accent: #3B82F6;
+    --border: #e5e7eb;
+    --card-bg: #ffffff;
+    --text-secondary: #6b7280;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--bg);
+    color: var(--text);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -29,18 +29,18 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 3rem;
-    background: var(--white);
-    border-bottom: 1px solid var(--gray-200);
+    padding: 16px 3rem;
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border);
     z-index: 100;
 }
 
 .logo a {
     font-size: 1.125rem;
     font-weight: 600;
-    color: var(--black);
+    color: var(--text);
     text-decoration: none;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.05em;
 }
 
 nav {
@@ -49,7 +49,7 @@ nav {
 }
 
 nav a {
-    color: var(--gray-600);
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9375rem;
     font-weight: 500;
@@ -58,75 +58,112 @@ nav a {
 
 nav a:hover,
 nav a.active {
-    color: var(--black);
+    color: var(--text);
+}
+
+nav a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
 }
 
 /* Main Layout */
 main {
-    max-width: 800px;
+    max-width: 960px;
     margin: 0 auto;
-    padding: 4rem 2rem;
+    padding: 48px 2rem;
 }
 
 /* Hero Section */
 .hero {
     margin-bottom: 6rem;
+    max-width: 70ch;
 }
 
 .hero h1 {
     font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.03em;
     margin-bottom: 1.5rem;
+    color: var(--text);
 }
 
 .hero .lead {
     font-size: 1.125rem;
-    line-height: 1.7;
-    color: var(--gray-600);
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--text-secondary);
+    max-width: 70ch;
 }
 
-/* Timeline Section */
-.timeline {
+/* Experience Section */
+.experience {
     margin-bottom: 6rem;
 }
 
-.timeline-item {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--gray-200);
+.experience h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    color: var(--text);
 }
 
-.timeline-item:last-child {
+.exp-item {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.exp-item:last-child {
     border-bottom: none;
 }
 
-.timeline-item .year {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--black);
-    padding-top: 0.25rem;
-}
-
-.timeline-item .content h3 {
+.exp-item h3 {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
 
-.timeline-item .content p {
-    color: var(--gray-600);
-    line-height: 1.7;
+.exp-item .year {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-left: 1rem;
+}
+
+.exp-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
     margin-bottom: 0.75rem;
+    max-width: 70ch;
 }
 
-.timeline-item .content p:last-child {
-    margin-bottom: 0;
+.exp-item a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.exp-item a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.exp-item a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
 }
 
 /* Philosophy Section */
@@ -135,112 +172,130 @@ main {
 }
 
 .philosophy h2 {
-    font-size: 1.75rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text);
 }
 
 .philosophy-grid {
     display: grid;
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
 }
 
 .principle {
-    padding: 1.5rem;
-    border: 1px solid var(--gray-200);
-    border-radius: 4px;
-    transition: border-color 0.2s ease;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .principle:hover {
-    border-color: var(--black);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.principle h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    letter-spacing: -0.01em;
 }
 
 .principle p {
-    color: var(--gray-600);
-    line-height: 1.7;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 0.9375rem;
 }
 
-/* Currently Section */
-.currently {
-    margin-bottom: 4rem;
+/* Now Section */
+.now {
+    margin-bottom: 6rem;
+    padding: 48px 0;
 }
 
-.currently h2 {
-    font-size: 1.75rem;
+.now h2 {
+    font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text);
 }
 
-.currently p {
-    color: var(--gray-600);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-}
-
-.currently p:last-child {
-    margin-bottom: 0;
+.now p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1.125rem;
+    max-width: 70ch;
 }
 
 /* Footer */
 footer {
-    border-top: 1px solid var(--gray-200);
-    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+    padding: 16px 0 3rem 0;
 }
 
-.contact h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
-}
-
-.contact-links {
+.contact {
     display: flex;
     gap: 2rem;
 }
 
-.contact-links a {
-    color: var(--black);
+.contact a {
+    color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    padding-bottom: 0.25rem;
-    border-bottom: 1px solid var(--gray-200);
-    transition: border-color 0.2s ease;
+    font-size: 0.9375rem;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.contact-links a:hover {
-    border-bottom-color: var(--black);
+.contact a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+.contact a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
     header {
-        padding: 1.25rem 1.5rem;
+        padding: 16px 1.5rem;
     }
 
     main {
-        padding: 3rem 1.5rem;
+        padding: 48px 1.5rem;
     }
 
     .hero {
         margin-bottom: 4rem;
     }
 
-    .timeline-item {
-        grid-template-columns: 60px 1fr;
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
-        padding-bottom: 2.5rem;
+    .philosophy-grid {
+        grid-template-columns: 1fr;
     }
 
-    .timeline-item .year {
-        font-size: 0.8125rem;
+    .exp-item h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
     }
 
-    .contact-links {
+    .exp-item .year {
+        margin-left: 0;
+    }
+
+    .contact {
         flex-direction: column;
         gap: 1rem;
     }
@@ -255,15 +310,18 @@ footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 1rem;
-        padding: 1rem 1.25rem;
+        padding: 16px 1.25rem;
     }
 
-    .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
+    main {
+        padding: 32px 1.25rem;
     }
 
-    .timeline-item .year {
-        padding-top: 0;
+    .philosophy-grid {
+        gap: 16px;
+    }
+
+    .principle {
+        padding: 20px;
     }
 }
