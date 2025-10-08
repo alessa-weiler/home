@@ -5,12 +5,12 @@
 }
 
 :root {
-    --bg: #F8F9FA;
-    --text: #111827;
+    --bg: #000000;
+    --text: #ffffff;
     --accent: #3B82F6;
-    --border: #e5e7eb;
-    --card-bg: #ffffff;
-    --text-secondary: #6b7280;
+    --border: #1f2937;
+    --card-bg: #0a0a0a;
+    --text-secondary: #9ca3af;
 }
 
 body {
@@ -30,7 +30,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 16px 3rem;
-    background: var(--card-bg);
+    background: var(--bg);
     border-bottom: 1px solid var(--border);
     z-index: 100;
 }
@@ -113,13 +113,22 @@ main {
 }
 
 .exp-item {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.exp-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 .exp-item:last-child {
-    border-bottom: none;
+    margin-bottom: 0;
 }
 
 .exp-item h3 {
@@ -191,13 +200,14 @@ main {
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .principle:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
 }
 
 .principle h3 {
@@ -217,7 +227,10 @@ main {
 /* Now Section */
 .now {
     margin-bottom: 6rem;
-    padding: 48px 0;
+    padding: 2.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
 }
 
 .now h2 {
