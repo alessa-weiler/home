@@ -2,7 +2,7 @@
 
 **Product Designer & Founder | London**
 
-Hi! I'm Alessa. This is my AI-powered terminal portfolio where you can chat with an AI version of me.
+Hi! I'm Alessa. This is my portfolio where you can chat with an AI version of me.
 
 ---
 
