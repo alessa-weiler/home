@@ -3,75 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alessa Weiler</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Talk to Alessa</title>
+    <link rel="stylesheet" href="terminal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-
-<body>
-    <header>
-        <div class="logo">
-            <a href="index.html">Alessa Weiler</a>
+<body class="terminal">
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="window-controls">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="title">alessa@terminal ~ talk to me</div>
+            <button id="voice-toggle" class="voice-btn">
+                <span class="voice-icon">🎤</span>
+                <span class="voice-label">Voice: OFF</span>
+            </button>
         </div>
-        <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero-intro">
-            <h1>Bridging science, code, and decision-making.</h1>
-            <p>Select a project to explore.</p>
-        </section>
+        <div class="terminal-content" id="terminal-content">
+            <!-- Boot sequence and messages will go here -->
+        </div>
 
-        <section class="projects-grid">
-            <div class="project-card" data-link="https://pont.world">
-                <div class="scene-container" id="scene-pont"></div>
-                <div class="card-content">
-                    <span class="year-badge">2025</span>
-                    <h2>Pont</h2>
-                    <p>Compatibility engine for social and therapeutic matching. Full-stack Flask + PostgreSQL app.</p>
-                </div>
+        <div class="terminal-input-container">
+            <div class="terminal-input">
+                <span class="prompt">visitor $</span>
+                <input type="text" id="user-input" placeholder="Type a message or click a prompt above..." autocomplete="off">
+                <button id="mic-btn" class="mic-btn" title="Use voice input">🎤</button>
             </div>
+        </div>
+    </div>
 
-            <div class="project-card" data-link="about.html">
-                <div class="scene-container" id="scene-ngenesis"></div>
-                <div class="card-content">
-                    <span class="year-badge">2024</span>
-                    <h2>Pont Connect</h2>
-                    <p>Friendship matching platform using agent based modelling. Lesson in user interviews and product-market fit.</p>
-                </div>
-            </div>
-
-            <div class="project-card" data-link="about.html">
-                <div class="scene-container" id="scene-gene-drives"></div>
-                <div class="card-content">
-                    <span class="year-badge">2024</span>
-                    <h2>Computational Gene Drives</h2>
-                    <p>Pipeline for guide RNA quantification. Bash, R, Python. Documentation is design.</p>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            <div class="contact">
-                <a href="mailto:alessa@pont-diagnostics.com">Email</a>
-                <a href="https://linkedin.com/in/alessaweiler" target="_blank">LinkedIn</a>
-                <a href="https://github.com/alessa-weiler" target="_blank">GitHub</a>
-            </div>
-        </footer>
-    </main>
-
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
-            }
-        }
-    </script>
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./terminal.js"></script>
 </body>
 </html>
