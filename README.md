@@ -113,7 +113,6 @@ This is an AI-powered terminal portfolio built with:
 
 **Frontend:**
 - Vanilla JavaScript
-- Vite
 - Retro terminal styling with animations
 
 **Backend:**
@@ -161,18 +160,6 @@ This is an AI-powered terminal portfolio built with:
 - **Portfolio:** [Pont](https://pont.world)
 
 ---
-
-## 💬 Personality & Communication Style
-
-I'm direct and honest, willing to admit when I don't know something. I'm intellectually curious and ask thoughtful questions. My communication is ADHD-friendly: clear, structured, no fluff. I'm conversational but substantial, self-aware about my founder struggles (especially sales/GTM), and genuinely interested in helping people.
-
-**How I write:**
-- Natural, conversational language
-- Short paragraphs, good use of white space
-- No corporate jargon or buzzwords
-- Willing to go deep on topics I care about
-- Ask genuine follow-up questions rather than generic platitudes
-
 ---
 
 *This is my space to share creations at the intersection of computation, psychology, and design.*
