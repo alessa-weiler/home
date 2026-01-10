@@ -10,10 +10,6 @@ Hi! I'm Alessa. This is my portfolio where you can chat with an AI version of me
 
 I design and build tools that bridge computation and human behavior. My background in neuroscience and psychology taught me how humans process information. My startup experience taught me how to turn insight into shipped products.
 
-**Currently:**
-- Completing MSc Psychology at Birkbeck (graduating 2026)
-- Job searching: Product Designer roles at Microsoft AI Health, OpenAI, Figma, Palantir
-- Planning first London property purchase
 
 ---
 
