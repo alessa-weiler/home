@@ -3,40 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talk to Alessa</title>
-    <link rel="stylesheet" href="terminal.css">
+    <title>Alessa Weiler - AI Welfare & Human-AI Interaction</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="terminal">
-    <div class="terminal-window">
-        <div class="terminal-header">
-            <div class="window-controls">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
+<body>
+    <!-- Hero Section with Sims-style Characters -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Alessa Weiler</h1>
+            <p class="tagline">AI Welfare & Human-AI Interaction</p>
+            <p class="instruction">Click on the characters to learn about my projects</p>
+        </div>
+        <canvas id="character-canvas"></canvas>
+
+        <!-- Character Info Modal -->
+        <div id="character-modal" class="modal hidden">
+            <div class="modal-content">
+                <button class="close-btn">&times;</button>
+                <h2 id="modal-title"></h2>
+                <p id="modal-description"></p>
+                <div id="modal-links"></div>
             </div>
-            <div class="title">alessa@terminal ~ talk to me</div>
-            <button id="voice-toggle" class="voice-btn">
-                <span class="voice-icon">🎤</span>
-                <span class="voice-label">Voice: OFF</span>
-            </button>
         </div>
+    </section>
 
-        <div class="terminal-content" id="terminal-content">
-            <!-- Boot sequence and messages will go here -->
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-timeline" id="projects-timeline">
+                <!-- Projects will be dynamically added here -->
+            </div>
         </div>
+    </section>
 
-        <div class="terminal-input-container">
-            <div class="terminal-input">
-                <span class="prompt">visitor $</span>
-                <input type="text" id="user-input" placeholder="Type a message or click a prompt above..." autocomplete="off">
-                <button id="mic-btn" class="mic-btn" title="Use voice input">🎤</button>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I'm passionate about AI welfare and human-AI interaction. My work explores how we can create more ethical, empathetic, and meaningful relationships between humans and artificial intelligence.</p>
+            <button id="chat-btn" class="cta-btn">Chat with AI Alessa</button>
+        </div>
+    </section>
+
+    <!-- Terminal Chat Modal -->
+    <div id="terminal-modal" class="modal hidden">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="window-controls">
+                    <div class="dot red" id="close-terminal"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+                <div class="title">alessa@terminal ~ talk to me</div>
+                <button id="voice-toggle" class="voice-btn">
+                    <span class="voice-icon">🎤</span>
+                    <span class="voice-label">Voice: OFF</span>
+                </button>
+            </div>
+
+            <div class="terminal-content" id="terminal-content">
+                <!-- Boot sequence and messages will go here -->
+            </div>
+
+            <div class="terminal-input-container">
+                <div class="terminal-input">
+                    <span class="prompt">visitor $</span>
+                    <input type="text" id="user-input" placeholder="Type a message or click a prompt above..." autocomplete="off">
+                    <button id="mic-btn" class="mic-btn" title="Use voice input">🎤</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <script type="module" src="./terminal.js"></script>
+    <script type="module" src="./main.js"></script>
 </body>
 </html>
