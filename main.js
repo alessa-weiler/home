@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 // Project Data
 const projects = [
   {
@@ -30,213 +32,168 @@ const projects = [
   }
 ];
 
-// Character Data (representing different projects)
-const characters = [
-  {
-    id: 'ai-welfare',
-    x: 200,
-    y: 300,
-    color: '#00ff00',
-    name: 'AI Welfare Research',
-    description: 'Exploring ethical frameworks for AI consciousness and welfare. How do we ensure AI systems are treated with dignity and respect?',
-    links: [
-      { text: 'Learn More', url: '#projects' }
-    ]
-  },
-  {
-    id: 'empathy',
-    x: 500,
-    y: 400,
-    color: '#00d4ff',
-    name: 'Empathetic AI Design',
-    description: 'Creating AI interfaces that foster genuine connection and understanding between humans and machines.',
-    links: [
-      { text: 'View Project', url: '#projects' }
-    ]
-  },
-  {
-    id: 'collaboration',
-    x: 800,
-    y: 350,
-    color: '#a855f7',
-    name: 'Human-AI Collaboration',
-    description: 'Researching optimal ways for humans and AI to work together while respecting autonomy on both sides.',
-    links: [
-      { text: 'Read Research', url: '#projects' }
-    ]
-  }
-];
+// Three.js Point Cloud Face Setup
+let scene, camera, renderer, pointCloud;
+let mouse, center;
 
-// Canvas Setup
-const canvas = document.getElementById('character-canvas');
-const ctx = canvas.getContext('2d');
-let animationId;
+function initThreeJS() {
+  const container = document.getElementById('three-container');
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  // Scene
+  scene = new THREE.Scene();
+
+  // Camera
+  camera = new THREE.PerspectiveCamera(
+    50,
+    window.innerWidth / window.innerHeight,
+    1,
+    10000
+  );
+  camera.position.set(0, 0, 500);
+
+  center = new THREE.Vector3();
+  center.z = -1000;
+
+  // Renderer
+  renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    antialias: true
+  });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  // Create Point Cloud Face
+  createPointCloudFace();
+
+  // Mouse movement
+  mouse = new THREE.Vector3(0, 0, 1);
+  document.addEventListener('mousemove', onMouseMove);
+
+  // Window resize
+  window.addEventListener('resize', onWindowResize);
+
+  // Start animation
+  animate();
 }
 
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+function createPointCloudFace() {
+  const width = 320;
+  const height = 240;
 
-// Character Class
-class Character {
-  constructor(data) {
-    this.id = data.id;
-    this.x = data.x;
-    this.y = data.y;
-    this.targetX = data.x;
-    this.targetY = data.y;
-    this.color = data.color;
-    this.name = data.name;
-    this.description = data.description;
-    this.links = data.links;
-    this.size = 40;
-    this.speed = 0.5;
-    this.direction = 1; // 1 for right, -1 for left
-    this.frame = 0;
-    this.frameSpeed = 0.05;
-  }
+  const geometry = new THREE.BufferGeometry();
+  const vertices = [];
+  const colors = [];
 
-  update() {
-    // Move towards target
-    const dx = this.targetX - this.x;
-    const dy = this.targetY - this.y;
-    const distance = Math.sqrt(dx * dx + dy * dy);
+  // Create a depth map for a face-like shape
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      // Normalize coordinates to -1 to 1
+      const nx = (x / width) * 2 - 1;
+      const ny = (y / height) * 2 - 1;
 
-    if (distance > this.speed) {
-      this.x += (dx / distance) * this.speed;
-      this.y += (dy / distance) * this.speed;
-      this.frame += this.frameSpeed;
-      this.direction = dx > 0 ? 1 : -1;
-    } else {
-      // Reached target, pick new random target
-      this.targetX = Math.random() * (canvas.width - 100) + 50;
-      this.targetY = Math.random() * (canvas.height - 100) + 50;
+      // Create face-like depth based on distance from center and features
+      let depth = 0;
+
+      // Head shape (ellipsoid)
+      const headDist = Math.sqrt((nx * nx * 0.8) + (ny * ny * 1.2));
+      if (headDist < 0.7) {
+        depth = (1 - headDist / 0.7) * 200;
+
+        // Eyes (depressions)
+        const leftEyeDist = Math.sqrt(Math.pow(nx + 0.25, 2) + Math.pow(ny - 0.15, 2));
+        const rightEyeDist = Math.sqrt(Math.pow(nx - 0.25, 2) + Math.pow(ny - 0.15, 2));
+
+        if (leftEyeDist < 0.12) {
+          depth -= (1 - leftEyeDist / 0.12) * 40;
+        }
+        if (rightEyeDist < 0.12) {
+          depth -= (1 - rightEyeDist / 0.12) * 40;
+        }
+
+        // Nose (protrusion)
+        const noseDist = Math.sqrt(Math.pow(nx, 2) * 4 + Math.pow(ny + 0.05, 2) * 2);
+        if (noseDist < 0.3 && ny > -0.2) {
+          depth += (1 - noseDist / 0.3) * 60;
+        }
+
+        // Mouth (depression)
+        const mouthDist = Math.sqrt(Math.pow(nx, 2) * 2 + Math.pow(ny + 0.35, 2) * 8);
+        if (mouthDist < 0.3 && ny < 0) {
+          depth -= (1 - mouthDist / 0.3) * 30;
+        }
+
+        // Add some noise for texture
+        depth += (Math.random() - 0.5) * 10;
+      }
+
+      // Only add points where there's depth
+      if (depth > 0) {
+        vertices.push(
+          (x - width / 2) * 2,
+          (y - height / 2) * 2,
+          -depth
+        );
+
+        // Color based on depth
+        const colorIntensity = depth / 200;
+        colors.push(
+          0.0 + colorIntensity * 0.3, // R - slight green
+          1.0 * colorIntensity, // G - main green
+          0.0 + colorIntensity * 0.5  // B - slight cyan
+        );
+      }
     }
-
-    // Keep within bounds
-    this.x = Math.max(this.size, Math.min(canvas.width - this.size, this.x));
-    this.y = Math.max(this.size, Math.min(canvas.height - this.size, this.y));
   }
 
-  draw() {
-    ctx.save();
-    ctx.translate(this.x, this.y);
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+  geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
-    // Draw simple character (circle with legs)
-    const legOffset = Math.sin(this.frame) * 5;
+  const material = new THREE.PointsMaterial({
+    size: 3,
+    vertexColors: true,
+    transparent: true,
+    opacity: 0.8,
+    blending: THREE.AdditiveBlending,
+    depthTest: false,
+    depthWrite: false
+  });
 
-    // Body
-    ctx.fillStyle = this.color;
-    ctx.shadowColor = this.color;
-    ctx.shadowBlur = 20;
-    ctx.beginPath();
-    ctx.arc(0, -this.size / 2, this.size / 2, 0, Math.PI * 2);
-    ctx.fill();
-
-    // Eyes
-    ctx.fillStyle = '#000';
-    ctx.fillRect(-8, -this.size / 2 - 5, 5, 5);
-    ctx.fillRect(3, -this.size / 2 - 5, 5, 5);
-
-    // Legs
-    ctx.strokeStyle = this.color;
-    ctx.lineWidth = 3;
-    ctx.shadowBlur = 10;
-
-    // Left leg
-    ctx.beginPath();
-    ctx.moveTo(-5, 0);
-    ctx.lineTo(-10, 15 + legOffset);
-    ctx.stroke();
-
-    // Right leg
-    ctx.beginPath();
-    ctx.moveTo(5, 0);
-    ctx.lineTo(10, 15 - legOffset);
-    ctx.stroke();
-
-    // Name label
-    ctx.shadowBlur = 0;
-    ctx.fillStyle = this.color;
-    ctx.font = '12px JetBrains Mono';
-    ctx.textAlign = 'center';
-    ctx.fillText(this.name.split(' ')[0], 0, this.size + 10);
-
-    ctx.restore();
-  }
-
-  isClicked(mouseX, mouseY) {
-    const distance = Math.sqrt(
-      (mouseX - this.x) ** 2 + (mouseY - this.y) ** 2
-    );
-    return distance < this.size;
-  }
+  pointCloud = new THREE.Points(geometry, material);
+  pointCloud.rotation.y = Math.PI; // Face forward
+  scene.add(pointCloud);
 }
 
-// Create character instances
-const characterInstances = characters.map(data => new Character(data));
+function onMouseMove(event) {
+  mouse.x = (event.clientX - window.innerWidth / 2) * 8;
+  mouse.y = (event.clientY - window.innerHeight / 2) * 8;
+}
 
-// Animation Loop
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
 function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  requestAnimationFrame(animate);
 
-  characterInstances.forEach(char => {
-    char.update();
-    char.draw();
-  });
+  // Camera follows mouse smoothly
+  camera.position.x += (mouse.x - camera.position.x) * 0.05;
+  camera.position.y += (-mouse.y - camera.position.y) * 0.05;
+  camera.lookAt(center);
 
-  animationId = requestAnimationFrame(animate);
-}
-
-animate();
-
-// Character Click Handler
-canvas.addEventListener('click', (e) => {
-  const rect = canvas.getBoundingClientRect();
-  const mouseX = e.clientX - rect.left;
-  const mouseY = e.clientY - rect.top;
-
-  characterInstances.forEach(char => {
-    if (char.isClicked(mouseX, mouseY)) {
-      showCharacterModal(char);
-    }
-  });
-});
-
-// Modal Functions
-const characterModal = document.getElementById('character-modal');
-const modalTitle = document.getElementById('modal-title');
-const modalDescription = document.getElementById('modal-description');
-const modalLinks = document.getElementById('modal-links');
-
-function showCharacterModal(character) {
-  modalTitle.textContent = character.name;
-  modalDescription.textContent = character.description;
-
-  modalLinks.innerHTML = '';
-  character.links.forEach(link => {
-    const a = document.createElement('a');
-    a.href = link.url;
-    a.textContent = link.text;
-    modalLinks.appendChild(a);
-  });
-
-  characterModal.classList.remove('hidden');
-}
-
-function hideCharacterModal() {
-  characterModal.classList.add('hidden');
-}
-
-document.querySelector('#character-modal .close-btn').addEventListener('click', hideCharacterModal);
-characterModal.addEventListener('click', (e) => {
-  if (e.target === characterModal) {
-    hideCharacterModal();
+  // Gentle floating/breathing animation
+  if (pointCloud) {
+    pointCloud.rotation.y = Math.PI + Math.sin(Date.now() * 0.0005) * 0.1;
+    pointCloud.position.z = Math.sin(Date.now() * 0.0008) * 20;
   }
-});
+
+  renderer.render(scene, camera);
+}
+
+// Initialize Three.js on load
+initThreeJS();
 
 // Populate Projects Section
 const projectsTimeline = document.getElementById('projects-timeline');
@@ -307,7 +264,7 @@ terminalModal.addEventListener('click', (e) => {
   }
 });
 
-// Terminal Logic (imported from terminal.js)
+// Terminal Logic
 let terminalInitialized = false;
 let messages = [];
 let isLoading = false;
@@ -321,7 +278,6 @@ function initTerminal() {
   const voiceToggle = document.getElementById('voice-toggle');
   const micBtn = document.getElementById('mic-btn');
 
-  // ASCII Art
   const asciiArt = `
     ▄▄▄       ██▓    ▓█████   ██████   ██████  ▄▄▄
    ▒████▄    ▓██▒    ▓█   ▀ ▒██    ▒ ▒██    ▒ ▒████▄
@@ -506,7 +462,6 @@ function initTerminal() {
     };
   }
 
-  // Event Listeners
   voiceToggle.addEventListener('click', () => {
     voiceModeEnabled = !voiceModeEnabled;
     voiceToggle.querySelector('.voice-label').textContent = `Voice: ${voiceModeEnabled ? 'ON' : 'OFF'}`;
@@ -544,7 +499,6 @@ function initTerminal() {
     }
   });
 
-  // Boot Sequence
   function bootSequence() {
     const lines = [
       'Initializing terminal...',
