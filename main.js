@@ -78,70 +78,128 @@ function initThreeJS() {
 }
 
 function createPointCloudFace() {
-  const width = 320;
-  const height = 240;
-
   const geometry = new THREE.BufferGeometry();
   const vertices = [];
   const colors = [];
 
-  // Create a depth map for a face-like shape
-  for (let y = 0; y < height; y++) {
-    for (let x = 0; x < width; x++) {
-      // Normalize coordinates to -1 to 1
-      const nx = (x / width) * 2 - 1;
-      const ny = (y / height) * 2 - 1;
+  // Create dense point cloud for realistic human face
+  // Using parametric surface modeling similar to 3D scan data
+  const latSegments = 60;
+  const lonSegments = 60;
 
-      // Create face-like depth based on distance from center and features
-      let depth = 0;
+  for (let lat = 0; lat < latSegments; lat++) {
+    const theta = (lat / latSegments) * Math.PI; // 0 to PI
 
-      // Head shape (ellipsoid)
-      const headDist = Math.sqrt((nx * nx * 0.8) + (ny * ny * 1.2));
-      if (headDist < 0.7) {
-        depth = (1 - headDist / 0.7) * 200;
+    for (let lon = 0; lon < lonSegments; lon++) {
+      const phi = (lon / lonSegments) * Math.PI * 2; // 0 to 2PI
 
-        // Eyes (depressions)
-        const leftEyeDist = Math.sqrt(Math.pow(nx + 0.25, 2) + Math.pow(ny - 0.15, 2));
-        const rightEyeDist = Math.sqrt(Math.pow(nx - 0.25, 2) + Math.pow(ny - 0.15, 2));
+      // Parametric equations for human face shape
+      const u = (lat / latSegments) * 2 - 1; // -1 to 1 (top to bottom)
+      const v = (lon / lonSegments) * 2 - 1; // -1 to 1 (left to right)
 
-        if (leftEyeDist < 0.12) {
-          depth -= (1 - leftEyeDist / 0.12) * 40;
-        }
-        if (rightEyeDist < 0.12) {
-          depth -= (1 - rightEyeDist / 0.12) * 40;
-        }
+      // Create anatomically-inspired face geometry
+      let radius = 100;
+      let x = 0, y = 0, z = 0;
 
-        // Nose (protrusion)
-        const noseDist = Math.sqrt(Math.pow(nx, 2) * 4 + Math.pow(ny + 0.05, 2) * 2);
-        if (noseDist < 0.3 && ny > -0.2) {
-          depth += (1 - noseDist / 0.3) * 60;
-        }
+      // Overall head shape - front half of ellipsoid
+      if (Math.abs(v) < 0.9 && Math.abs(u) < 1.1) {
+        // Base ellipsoid shape
+        const baseRadius = Math.sqrt(Math.max(0, 1 - v * v * 0.8 - u * u * 0.5)) * radius;
 
-        // Mouth (depression)
-        const mouthDist = Math.sqrt(Math.pow(nx, 2) * 2 + Math.pow(ny + 0.35, 2) * 8);
-        if (mouthDist < 0.3 && ny < 0) {
-          depth -= (1 - mouthDist / 0.3) * 30;
+        x = v * radius * 0.9;
+        y = u * radius * 1.2;
+        z = baseRadius;
+
+        // Forehead flattening
+        if (u < -0.4) {
+          z *= 0.7 + (u + 0.4) * 0.5;
         }
 
-        // Add some noise for texture
-        depth += (Math.random() - 0.5) * 10;
-      }
+        // Eye sockets - indentations
+        const leftEyeU = u + 0.25;
+        const leftEyeV = v + 0.3;
+        const leftEyeDist = Math.sqrt(leftEyeU * leftEyeU * 3 + leftEyeV * leftEyeV * 4);
 
-      // Only add points where there's depth
-      if (depth > 0) {
-        vertices.push(
-          (x - width / 2) * 2,
-          (y - height / 2) * 2,
-          -depth
-        );
+        const rightEyeU = u + 0.25;
+        const rightEyeV = v - 0.3;
+        const rightEyeDist = Math.sqrt(rightEyeU * rightEyeU * 3 + rightEyeV * rightEyeV * 4);
 
-        // Color based on depth
-        const colorIntensity = depth / 200;
-        colors.push(
-          0.0 + colorIntensity * 0.3, // R - slight green
-          1.0 * colorIntensity, // G - main green
-          0.0 + colorIntensity * 0.5  // B - slight cyan
-        );
+        if (leftEyeDist < 0.5) {
+          z -= (1 - leftEyeDist / 0.5) * 30;
+        }
+        if (rightEyeDist < 0.5) {
+          z -= (1 - rightEyeDist / 0.5) * 30;
+        }
+
+        // Nose bridge and tip
+        if (Math.abs(v) < 0.2 && u > -0.1 && u < 0.4) {
+          const noseU = (u - 0.15) * 3;
+          const noseV = v * 5;
+          const noseDist = Math.sqrt(noseU * noseU + noseV * noseV);
+
+          if (noseDist < 1.2) {
+            const noseProtrusion = (1 - noseDist / 1.2) * 40;
+            z += noseProtrusion * (1 + Math.sin(noseU * 2) * 0.3);
+          }
+        }
+
+        // Cheekbones
+        const cheekU = u - 0.1;
+        const leftCheekV = v + 0.45;
+        const rightCheekV = v - 0.45;
+
+        const leftCheekDist = Math.sqrt(cheekU * cheekU * 4 + leftCheekV * leftCheekV * 3);
+        const rightCheekDist = Math.sqrt(cheekU * cheekU * 4 + rightCheekV * rightCheekV * 3);
+
+        if (leftCheekDist < 0.6) {
+          z += (1 - leftCheekDist / 0.6) * 15;
+        }
+        if (rightCheekDist < 0.6) {
+          z += (1 - rightCheekDist / 0.6) * 15;
+        }
+
+        // Mouth area
+        if (Math.abs(v) < 0.35 && u > 0.4 && u < 0.7) {
+          const mouthU = (u - 0.55) * 4;
+          const mouthV = v * 3;
+          const mouthDist = Math.sqrt(mouthU * mouthU + mouthV * mouthV);
+
+          if (mouthDist < 0.8) {
+            z -= (1 - mouthDist / 0.8) * 20;
+          }
+        }
+
+        // Chin definition
+        if (u > 0.7) {
+          const chinFade = Math.max(0, 1 - (u - 0.7) / 0.4);
+          z *= chinFade * 0.7 + 0.3;
+
+          // Chin bulge
+          if (Math.abs(v) < 0.25 && u > 0.75 && u < 0.95) {
+            const chinU = (u - 0.85) * 8;
+            const chinV = v * 4;
+            const chinDist = Math.sqrt(chinU * chinU + chinV * chinV);
+            if (chinDist < 0.8) {
+              z += (1 - chinDist / 0.8) * 18;
+            }
+          }
+        }
+
+        // Add realistic surface noise
+        z += (Math.random() - 0.5) * 3;
+
+        // Only add points with positive depth
+        if (z > 5) {
+          vertices.push(x, y, z);
+
+          // Gradient coloring based on depth
+          const depthNorm = Math.min(1, z / radius);
+          const r = depthNorm * 0.15;
+          const g = 0.4 + depthNorm * 0.6;
+          const b = depthNorm * 0.3;
+
+          colors.push(r, g, b);
+        }
       }
     }
   }
@@ -149,18 +207,23 @@ function createPointCloudFace() {
   geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
   geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
+  // Center the geometry
+  geometry.computeBoundingBox();
+  const center = new THREE.Vector3();
+  geometry.boundingBox.getCenter(center);
+  geometry.translate(-center.x, -center.y, -center.z);
+
   const material = new THREE.PointsMaterial({
-    size: 3,
+    size: 2,
     vertexColors: true,
     transparent: true,
-    opacity: 0.8,
+    opacity: 0.9,
     blending: THREE.AdditiveBlending,
-    depthTest: false,
+    depthTest: true,
     depthWrite: false
   });
 
   pointCloud = new THREE.Points(geometry, material);
-  pointCloud.rotation.y = Math.PI; // Face forward
   scene.add(pointCloud);
 }
 
