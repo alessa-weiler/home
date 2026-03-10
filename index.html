@@ -1,42 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talk to Alessa</title>
-    <link rel="stylesheet" href="terminal.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-</head>
-<body class="terminal">
-    <div class="terminal-window">
-        <div class="terminal-header">
-            <div class="window-controls">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
-            </div>
-            <div class="title">alessa@terminal ~ talk to me</div>
-            <button id="voice-toggle" class="voice-btn">
-                <span class="voice-icon">🎤</span>
-                <span class="voice-label">Voice: OFF</span>
-            </button>
-        </div>
-
-        <div class="terminal-content" id="terminal-content">
-            <!-- Boot sequence and messages will go here -->
-        </div>
-
-        <div class="terminal-input-container">
-            <div class="terminal-input">
-                <span class="prompt">visitor $</span>
-                <input type="text" id="user-input" placeholder="Type a message or click a prompt above..." autocomplete="off">
-                <button id="mic-btn" class="mic-btn" title="Use voice input">🎤</button>
-            </div>
-        </div>
-    </div>
-
-    <script type="module" src="./terminal.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alessa — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
