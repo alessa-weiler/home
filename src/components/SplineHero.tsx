@@ -28,12 +28,6 @@ export function SplineHero() {
             >
               View experience →
             </a>
-            <a
-              href="#chat"
-              className="px-4 py-2 text-xs font-mono text-neutral-400 hover:text-white border border-neutral-800 hover:border-neutral-600 rounded transition-colors"
-            >
-              Talk to me
-            </a>
           </div>
         </div>
 

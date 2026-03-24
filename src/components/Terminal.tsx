@@ -124,7 +124,7 @@ export function Terminal() {
         <div className="w-3 h-3 rounded-full bg-red-500" />
         <div className="w-3 h-3 rounded-full bg-yellow-500" />
         <div className="w-3 h-3 rounded-full bg-green-500" />
-        <span className="ml-3 text-xs text-neutral-500">alessa@terminal ~ talk to me</span>
+        <span className="ml-3 text-xs text-neutral-500">alessa@terminal ~</span>
       </div>
 
       {/* Output */}

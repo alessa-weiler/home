@@ -41,7 +41,7 @@ export default function App() {
 
         {/* Terminal Chat */}
         <section id="chat" className="py-8 pb-16">
-          <SectionHeader label="talk-to-me" />
+          <SectionHeader label="chat" />
           <p className="text-sm text-neutral-500 mb-6 font-mono">Ask an AI version of me anything.</p>
           <Terminal />
         </section>
