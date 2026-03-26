@@ -1,5 +1,4 @@
 import { SplineHero } from './components/SplineHero';
-import { Terminal } from './components/Terminal';
 import { Skills } from './components/Skills';
 import { Experience } from './components/Experience';
 import { Interests } from './components/Interests';
@@ -23,7 +22,6 @@ export default function App() {
           <div className="flex gap-6 text-sm font-mono text-neutral-500">
             <a href="#skills" className="hover:text-white transition-colors">skills</a>
             <a href="#experience" className="hover:text-white transition-colors">experience</a>
-            <a href="#chat" className="hover:text-white transition-colors">chat</a>
           </div>
         </nav>
 
@@ -38,13 +36,6 @@ export default function App() {
 
         {/* Interests */}
         <Interests />
-
-        {/* Terminal Chat */}
-        <section id="chat" className="py-8 pb-16">
-          <SectionHeader label="chat" />
-          <p className="text-sm text-neutral-500 mb-6 font-mono">Ask an AI version of me anything.</p>
-          <Terminal />
-        </section>
       </div>
     </div>
   );
